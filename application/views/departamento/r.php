@@ -25,7 +25,7 @@
 </table>
 
 <div class="row">
-<a href="<?=base_url()?>departamento/c"><button class="button">Nuevo</button></a>
+<a href="<?=base_url()?>departamento/create"><button class="button">Nuevo</button></a>
 	<a href="<?=base_url()?>"><button class="button">Volver</button></a>
 </div>
 </div>

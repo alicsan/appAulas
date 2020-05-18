@@ -6,7 +6,7 @@ class Departamento extends CI_Controller{
         frame($this,'departamento/c');
     }
     
-    public function crearPost(){
+    public function createPost(){
     $this->load->model('departamento_model');
     $nombre=isset($_POST['nombre']) ? $_POST['nombre'] : null;
     
@@ -21,7 +21,7 @@ class Departamento extends CI_Controller{
     }
     }
     
-    public function read(){
+    public function r(){
         $this->load->model('departamento_model');
         $data['departamentos']=$this->departamento_model->getDepartamentos();
         frame($this,'departamento/r',$data);
@@ -32,7 +32,7 @@ class Departamento extends CI_Controller{
         try{
             $this->load->model('departamento_model');
             $this->departamento_model->borrarDepartamento($id);
-            redirect(base_url.'departamento/r');
+            redirect(base_url().'departamento/r');
         }catch(Exception $e){
             session_start();
             $_SESSION['_msg']['texto']=$e->getMessage();
