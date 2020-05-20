@@ -14,45 +14,62 @@
  		<ul class="dropdown-menu"> 
 		  <li><a href="<?=base_url()?>hdu/anonymous/registrar">Registrar</a></li>
 		  <li><a href="<?=base_url()?>hdu/anonymous/login">Login</a></li>
-		  <li><a href="<?=base_url()?>hdu/user/logout">Logout</a></li>
+			<li><a href=\"<?=base_url()?>hdu/user/logout">Logout</a></li>
  	     </ul> 
       </li> 
+      
 
-	<?php ?>
+
+   <!--  <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+           Departamento<span class="caret"></span>
+        </a>
+        
+		<ul class="dropdown-menu">
+		  <li><a href="<?=base_url()?>departamento/c">Crear</a></li>
+		  <li><a href="<?=base_url()?>departamento/r">Listar</a></li>
+	     </ul>
+      </li>
+
+
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+           Aulas<span class="caret"></span>
+        </a>
+        
+		<ul class="dropdown-menu">
+		  <li><a href="<?=base_url()?>aula/c">Crear</a></li>
+		  <li><a href="<?=base_url()?>aula/r">Listar</a></li>
+	     </ul>
+      </li>
+
     
-<!--      <li class="dropdown">
+    <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-           Persona<span class="caret"></span>
+           Tipo de Aula<span class="caret"></span>
         </a>
         
 		<ul class="dropdown-menu">
-		  <li><a href="<?=base_url()?>persona/c">Crear</a></li>
-		  <li><a href="<?=base_url()?>persona/r">Listar</a></li>
-	     </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-           Afición<span class="caret"></span>
-        </a>
-        
-		<ul class="dropdown-menu">
-		  <li><a href="<?=base_url()?>aficion/c">Crear</a></li>
-		  <li><a href="<?=base_url()?>aficion/r">Listar</a></li>
-	     </ul>
-      </li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-           País<span class="caret"></span>
-        </a>
-        
-		<ul class="dropdown-menu">
-		  <li><a href="<?=base_url()?>pais/c">Crear</a></li>
-		  <li><a href="<?=base_url()?>pais/r">Listar</a></li>
+		  <li><a href="<?=base_url()?>categoriaAula/c">Crear</a></li>
+		  <li><a href="<?=base_url()?>categoriaAula/r">Listar</a></li>
 	     </ul>
       </li>
 
 
--->
+
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+           Materiales<span class="caret"></span>
+        </a>
+        
+		<ul class="dropdown-menu">
+		  <li><a href="<?=base_url()?>material/c">Crear</a></li>
+		  <li><a href="<?=base_url()?>material/r">Listar</a></li>
+	     </ul>
+      </li>
+        HTML;
+	 -->
+    
     </ul>
   </div>
 </nav>
