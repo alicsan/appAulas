@@ -8,11 +8,12 @@ class Usuario_model extends CI_Model{
         if($valido){
             $usuario=R::dispense('usuario');
            $departamento=R::load('departamento',$idDepar);
-          
+            
+            $usuario->rol="profesor";
             $usuario->nombre=$nombre;
             $usuario->username=$username;
             $usuario->pwd=password_hash($pwd, PASSWORD_DEFAULT);
-            $usuario->tiene_id=$departamento;
+            $usuario->tiene=$departamento;
             
             R::store($usuario);
             
