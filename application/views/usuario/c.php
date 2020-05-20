@@ -31,7 +31,6 @@
 	</div>
 
 
-	<br/>
 	<input type="submit"/>
 </form>
 

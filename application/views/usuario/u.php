@@ -6,7 +6,7 @@
 
 
 <form action="<?=base_url()?>usuario/uPost" method="post">
-	<input type="hidden" name="id" value="<?=$usuario->id?>"?>
+	<input type="hidden" name="id" value="<?=$usuario->id?>">
 	
 	<div class="form-group">
 	<label for="username">Nombre de usuario</label>
@@ -25,9 +25,9 @@
 	</div>
 
 
-	<input type="submit"/>
+	<button class="btn btn-outline-dark" onclick="submit()">Actualizar</button>	
 </form>
 
-<a href="<?=base_url()?>"><button>Cancelar</button></a>
+<a href="<?=base_url()?>"><button class="btn btn-outline-dark">Cancelar</button></a>
 
 </div>
