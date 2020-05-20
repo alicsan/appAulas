@@ -4,7 +4,7 @@
 <h1>Editar material</h1>
 </div>
 
-<form action="<?=base_url()?>usuario/uPost" method="post">
+<form action="<?=base_url()?>material/uPost" method="post">
 	<input type="hidden" name="id" value="<?=$material->id?>">
 	
 	<div class="form-group">

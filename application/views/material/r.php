@@ -15,14 +15,14 @@
 			<td><?= $material->observaciones?></td>
 			<td>
 				<form action="<?=base_url()?>material/d" method="post">
-					<input type="hidden" name="id" value="<?=$material->id?>">
+					<input type="hidden" name="idMaterial" value="<?=$material->id?>">
 					<button onclick="submit()">
 						<img src="<?=base_url()?>/assets/img/basura.png" height="20"
 							width="20">
 					</button>
 				</form>
 				<form action="<?=base_url()?>material/u" method="post">
-				<input type="hidden" name="id" value="<?=$material->id?>">
+				<input type="hidden" name="idMaterial" value="<?=$material->id?>">
 				<button onclick="submit()">
 					<img src="<?=base_url()?>/assets/img/lapiz.png" height="20"
 						width="20">

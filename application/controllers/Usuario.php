@@ -75,6 +75,10 @@ class Usuario extends CI_Controller{
                 redirect(base_url() . 'msg');
             }
         }
+        
+        public function verificarLogin($usuario,$pwd){
+            
+        }
 }
 
 ?>

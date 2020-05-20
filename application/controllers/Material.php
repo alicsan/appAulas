@@ -27,10 +27,10 @@ class Material extends CI_Controller{
         frame($this,'material/r',$data);
     }
     
-    public function u($id){
-        $id = isset($_POST['id'])?$_POST['id']:null;
+    public function u(){
+        $id = isset($_POST['idMaterial'])?$_POST['idMaterial']:null;
         $this->load->model('material_model');
-        $data['materiales']=$this->material_model->getMaterialById($id);
+        $data['material']=$this->material_model->getMaterialById($id);
         frame($this,'material/u',$data);
     }
     
@@ -38,7 +38,7 @@ class Material extends CI_Controller{
         $this->load->model('material_model');
         $id = isset($_POST['id']) ? $_POST['id'] : null;
         $nombre= isset ($_POST['nombre']) ? $_POST['nombre'] : null;
-        $observaciones = isset($_POST['observaciones']) ? $_POST['observaciones'] : null;
+        $observaciones = isset($_POST['observaciones']) ? $_POST['observaciones'] : '--';
         try{
             $this->material_model->updateMaterial($id,$nombre,$observaciones);
             redirect(base_url().'material/r');
@@ -53,10 +53,9 @@ class Material extends CI_Controller{
     
     public function d(){
         $id=isset($_POST['id']) ? $_POST['id'] : null;
-        $this->load->model('material_model');
-        try{
-            
-            $this->material_model->borrarMaterial($id);
+          try{
+            $this->load->model('material_model');
+            $this->material_model->dMaterial($id);
             redirect(base_url().'material/r');
         }catch(Exception $e){
             session_start();

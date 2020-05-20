@@ -56,6 +56,22 @@ class Usuario_model extends CI_Model{
         }
         
     }
+    
+    
+    ///////////////////////// 
+    
+    
+    public function verificarLogin($nombre,$pwd){
+    $usuario=R::findOne('usuario','nombre=?',[$nombre]);
+    if($usuario==null){
+        throw new Exception("Usuario o contraseña no correcta");
+    }
+    if(!password_verify($pwd,$usuario->pwd)){
+        throw new Exception("Usuario o contraseña no correcta");
+    }
+    
+    return $usuario;
+}
 }
 
 ?>

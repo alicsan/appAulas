@@ -25,17 +25,6 @@ class Material_Model extends CI_Model{
         return R::findAll('material');
     }
     
-    public function borrarMaterial($id){
-        $material=R::load('material',$id);
-        $valido=($material!=null);
-        if($valido){
-            R::trash($material);
-        }else{
-            $e = ($id==null?new Exception("nulo"):new Exception("Error al eliminar la categoría"));
-            throw $e;
-        }
-    
-    }
     
     public function getMaterialById($id){
         return R::findOne('material',$id);
@@ -48,18 +37,18 @@ class Material_Model extends CI_Model{
             $mat->nombre=$nombre;
             $mat->observaciones=$obs;
         }else{
-            $e = ($idDepar == null ? new Exception("nulo") : new Exception("duplicado"));
+            $e = ($id == null ? new Exception("nulo") : new Exception("duplicado"));
             throw $e;
         }
     }
    
-    public function borrarMaterial($id){
-        $valido=$id!=null;
-        if($valido){
+    public function dMaterial($id){
+        $ok=$id!=null;
+        if($ok){
         $mat=R::load('material',$id);
-        R::trash($material);
+        R::trash($mat);
         }else{
-            $e = ($id==null?new Exception("nulo"):new Exception("Error al eliminar el usuario"));
+            $e = ($id==null?new Exception("nulo"):new Exception("Error al eliminar el material"));
             throw $e;
         }
     }
