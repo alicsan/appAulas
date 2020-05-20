@@ -4,7 +4,7 @@
 <h1>Nuevo usuario</h1>
 </div>
 
-<form action="<?=base_url()?>usuario/cPost" method="post">
+<form action="<?=base_url()?>anonymous/registrarPost" method="post">
 
 	 <div class="form-group">
 	<label for="nombre">Nombre</label>

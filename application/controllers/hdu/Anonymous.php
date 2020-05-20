@@ -3,7 +3,7 @@ class Anonymous extends CI_Controller{
     public function registrar(){
         $this->load->model('departamento_model');
         $data['departamentos']=$this->departamento_model->getDepartamentos();
-        frame($this,'usuario/c',$data);
+        frame($this,'_hdu/anonymous/registrar',$data);
             
     }
         
@@ -37,12 +37,12 @@ class Anonymous extends CI_Controller{
     }
     
     public function loginPost(){
-        $nombre=isset($_POST['nombre']) ? $_POST['nombre'] : null;
+        $username=isset($_POST['username']) ? $_POST['username'] : null;
         $pwd=isset($_POST['pwd']) ? $_POST['pwd'] : null;
         $this->load->model('usuario_model');
        
         try{
-           $usuario=$this->usuario_model->verificarLogin($nombre,$pwd);
+            $usuario=$this->usuario_model->verificarLogin($username,$pwd);
            if(session_status() == PHP_SESSION_NONE){
                session_start();
            }
