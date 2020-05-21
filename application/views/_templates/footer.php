@@ -1,7 +1,7 @@
 <style>
 body
 {
-  background-color: black;
+  background-color: lightgrey;
 }
 li
 {
