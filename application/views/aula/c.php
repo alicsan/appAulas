@@ -20,8 +20,8 @@
 	</div>
 	
 	<div class="form-group">
-	<label for="idCat">Tipo de Aula</label>
-	<select id="idCat" name="idCat" class="form-control">
+	<label for="idCat">Categoría</label>
+	<select  name="idCat" class="form-control">
 	<?php foreach($categorias as $categoria):?>
 	<option value="<?=$categoria->id?>" > <?=$categoria->nombre?> </option>
 	<?php endforeach;?>

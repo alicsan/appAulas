@@ -8,7 +8,7 @@ class CategoriaAula_model extends CI_Model{
         if($valido){
             $categoria=R::dispense('categoriaaula');
             $categoria->nombre=$nombre;
-            $categoria->alias('tiene')->xownAulaList=[];
+            $categoria->alias('pertenece')->xownAulaList=[];
             
             R::store($categoria);
         }else{
@@ -27,7 +27,7 @@ class CategoriaAula_model extends CI_Model{
         if($valido){
             R::trash($cat);
         }else{
-            $e = ($id==null?new Exception("nulo"):new Exception("Error al eliminar la categoría"));
+            $e = ($id==null?new Exception("nulo"):new Exception("Error al eliminar la categorï¿½a"));
             throw $e;
         }
     }

@@ -2,11 +2,11 @@
 
 class Departamento extends CI_Controller{
     
-    public function create(){
+    public function c(){
         frame($this,'departamento/c');
     }
     
-    public function createPost(){
+    public function cPost(){
     $this->load->model('departamento_model');
     $nombre=isset($_POST['nombre']) ? $_POST['nombre'] : null;
     
