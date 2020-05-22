@@ -25,6 +25,9 @@ footer
   background-color: #2C3531;
 }
 
+.boton{
+	background-color: rgb(139,0,139) !important;
+}
 .fondoNegro 
 {
   background-color: black !important;

@@ -14,6 +14,7 @@ class Usuario_model extends CI_Model{
             $usuario->username=$username;
             $usuario->pwd=password_hash($pwd, PASSWORD_DEFAULT);
             $usuario->tiene=$departamento;
+            $usuario->alias('usuarios')->xownReservaList=[];
             
             R::store($usuario);
             

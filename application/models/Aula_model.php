@@ -13,6 +13,7 @@ class Aula_model extends CI_Model {
             $aula->capacidad=$capacidad;
             $aula->comentarios=$comentarios;
             $aula->pertenece=$catA;
+            $aula->alias('aulas')->xownReservaList=[];
             R::store($aula);
             
         }else{

@@ -33,6 +33,12 @@
 						width="20">
 				</button>
 			</form>
+			<form action="<?=base_url()?>reserva/c" method="post">
+				<input type="hidden" name="id" value="<?=$aula->id?>">
+				<button onclick="submit()">
+					RESERVAR
+				</button>
+			</form>
 		</td>
 
 	</tr>
