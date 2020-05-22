@@ -1,5 +1,5 @@
 
-<nav class="container navbar navbar-inverse">
+<nav class="container navbar navbar-inverse fondoNegro">
   <div class="navbar-header">
     <a class="navbar-brand" href="hdu/user/homepage"> Inicio</a>
  

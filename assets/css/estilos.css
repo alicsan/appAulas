@@ -1,6 +1,6 @@
 body
 {
-  background-color: lightgrey;
+  background-color: #C1C8E4;
 }
 li
 {
@@ -22,12 +22,15 @@ footer
 .content
 {
   height: 50vh;
-  background-color: lightgray;
+  background-color: #2C3531;
 }
 
-.container
+.fondoNegro 
 {
-  background-color: beige;
+  background-color: black !important;
+}
+.container{
+	background-color: white;
 }
 
 .copyright,  .impressum
