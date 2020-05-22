@@ -1,63 +1,4 @@
-<style>
-body
-{
-  background-color: lightgrey;
-}
-li
-{
-  list-style-type: none;
-  margin-left: 1vw;
-}
 
-li:first-child
-{
-  margin:0;
-}
-
-footer
-{
-  padding-top: 5vh;
-  padding-bottom: 2vh;
-}
-
-.content
-{
-  height: 50vh;
-  background-color: lightgray;
-}
-
-.container
-{
-  background-color: beige;
-}
-
-.copyright,  .impressum
-{
-  text-align: center;
-}
-
-.logo
-{
-  height: 8vh;
-}
-
-@media (max-width: 768px) 
-{
-  li
-  {
-    margin-left: 0;
-    margin-bottom: 1vh;
-  }
-  
-  .sozial
-  {
-    margin-bottom: 1vh;
-  }
-}
-
-</style>
-</head>
-<body>
 <div class="container">
   <div class="container"></div>
   <footer class="row">
@@ -88,11 +29,11 @@ footer
     
     <div class="copyright col-xs-12 col-sm-3 col-sm-pull-6">
       <p class="font-italic">  </p>
-    </div><!-- Ende Copyright -->
+    </div><!-- End Copyright -->
     
     <div class="impressum col-xs-12 col-sm-3 col-sm-pull-6">
       <p class="font-italic"> I.E.S Rey Fernando VI  </p>
       <p></p>
-    </div><!-- Ende Impressum -->
+    </div><!-- End Impressum -->
   </footer>
 </div>

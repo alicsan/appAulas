@@ -32,7 +32,7 @@
  	     </ul> 
       </li> 
 
-   <!--  <li class="dropdown">
+    <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
            Departamento<span class="caret"></span>
         </a>
@@ -52,22 +52,10 @@
 		<ul class="dropdown-menu">
 		  <li><a href="<?=base_url()?>aula/c">Crear</a></li>
 		  <li><a href="<?=base_url()?>aula/r">Listar</a></li>
+		  <li><a href="<?=base_url()?>categoriaAula/c">Crear Cat</a></li>
+		  <li><a href="<?=base_url()?>categoriaAula/r">Listar Cat</a></li>
 	     </ul>
       </li>
-
-    
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-           Tipo de Aula<span class="caret"></span>
-        </a>
-        
-		<ul class="dropdown-menu">
-		  <li><a href="<?=base_url()?>categoriaAula/c">Crear</a></li>
-		  <li><a href="<?=base_url()?>categoriaAula/r">Listar</a></li>
-	     </ul>
-      </li>
-
-
 
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -79,8 +67,8 @@
 		  <li><a href="<?=base_url()?>material/r">Listar</a></li>
 	     </ul>
       </li>
-        HTML;
-	 -->
+       
+	
     
     </ul>
   </div>
