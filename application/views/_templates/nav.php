@@ -1,5 +1,5 @@
 <?php $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon"?>
-<?=var_dump($usuario)?>
+
 <nav class="container navbar navbar-inverse fondoNegro">
   <div class="navbar-header">
     <a class="navbar-brand" href="<?=base_url()?>"> Inicio</a>
