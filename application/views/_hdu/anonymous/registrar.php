@@ -4,7 +4,7 @@
 <h1>Registrar usuario</h1>
 </div>
 
-<form action="<?=base_url()?>hdu/anonymous/registrarPost" method="post">
+<form action="<?=base_url()?>anonymous/registrarPost" method="post">
 
 	 <div class="form-group">
 	<label for="nombre">Nombre</label>

@@ -2,6 +2,7 @@
 class Departamento_Model extends CI_Model{
 
     public function crearDepartamento ($nombre){
+      
         $departamento=R::findOne('departamento','nombre=?',[$nombre]);
         $valido=($departamento==null&&$nombre!=null);
         

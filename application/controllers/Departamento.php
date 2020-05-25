@@ -3,7 +3,10 @@
 class Departamento extends CI_Controller{
     
     public function c(){
+        $user=$_SESSION['usuario'];
+        if($user->nivel->nombre=='admin'){
         frame($this,'departamento/c');
+        }
     }
     
     public function cPost(){
@@ -28,6 +31,8 @@ class Departamento extends CI_Controller{
     }
     
     public function delete(){
+        $user=$_SESSION['usuario'];
+        if($user->nivel->nombre=='admin'){
         $id=isset($_POST['id']) ? $_POST['id'] : null;
         try{
             $this->load->model('departamento_model');
@@ -38,6 +43,10 @@ class Departamento extends CI_Controller{
             $_SESSION['_msg']['texto']=$e->getMessage();
             $_SESSION['_msg']['uri']='departamento/r';
             redirect(base_url().'msg');
+        }
+        }else{
+            $_SESSION['_msg']['texto'] = "Rol inadecuado";
+            redirect(base_url() . 'msg');
         }
     }
     

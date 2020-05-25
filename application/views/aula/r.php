@@ -2,7 +2,7 @@
 
 <h1>Lista de Aulas</h1>
 
-<table class="table table-striped table-hover">
+<table class="table table-hover table-dark">
 	<tr>
 		<th>Tipo</th>
 		<th>Nombre</th>

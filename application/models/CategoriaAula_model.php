@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 class CategoriaAula_model extends CI_Model{
     
     public function crearCategoria($nombre){

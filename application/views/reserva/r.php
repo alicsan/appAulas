@@ -12,7 +12,7 @@
 	<?php foreach($reservas as $reserva):?>
 		<tr>
 			<td><?=$reserva->usuarios->nombre?></td>
-			<td><?=$reserva->aulas->nombre?></td>
+			<td><?=$reserva->aulas->pertenece->nombre?> <?=$reserva->aulas->nombre?></td>
 			<td><?=$reserva->fechaInicio?></td>
 			<td><?=$reserva->fechaFin?></td>		
 		</tr>
