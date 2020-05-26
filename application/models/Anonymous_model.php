@@ -28,18 +28,25 @@ class Anonymous_model extends CI_Model{
         $cA3->nombre('Polivalente');
         R::store($cA2);
         
-        //inicalizamos usuario admin
+        $depar=R::dispense('departamento');
+        $depar->nombre('Dirección');
+        R::store($depar);
+        
+        $d=R::dispense('departamento');
+        $d->nombre('IT');
+        R::store($d);
+        
+        $d2=R::dispense('departamento');
+        $d2->nombre('Matemáticas');
+        R::store($d2);
+        
         $usuarioAdmin = R::dispense('usuario');
         $usuarioAdmin->nombre = 'Administrador';
         $usuarioAdmin->username = 'admin';
         $usuarioAdmin->password = password_hash('admin', PASSWORD_DEFAULT);
         $usuarioAdmin->nivel=$rolAdmin;
         R::store($usuarioAdmin);
-        //Vinculamos admin con el perfil administrador
-//         $roles = R::dispense('roles');
-//         $roles -> usuario = $usuarioAdmin;
-//         $roles -> rol = $rolAdmin;
-//         R::store($roles);
+       
         
         
     }
