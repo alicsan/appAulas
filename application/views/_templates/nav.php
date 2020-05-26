@@ -27,6 +27,7 @@
         <a class="nav-link" href="<?=base_url()?>anonymous/registrar">Registrar Usuario</a>
       </li>
 		<?php endif;?>
+		
 		<?php if($usuario=="user" || $usuario=="admin"):?>
     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -59,20 +60,20 @@
       </li>
 	</ul>
     
-        
-		
-		<li class="dropdown">
+        <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
            Materiales<span class="caret"></span>
         </a>
-         <ul class="dropdown-menu">
-				  <li><a href="<?=base_url()?>material/r">Listar</a></li>
-				 
-		  	  <?php if($usuario=="admin"):?>
-		  	  <li><a href="<?=base_url()?>material/c">Crear</a></li>
-		  	  <?php endif;?>
-	     
+        
+		<ul class="dropdown-menu">
+		  <li><a href="<?=base_url()?>material/r">Listar</a></li>
+		  <?php if($usuario=="admin"):?>
+		  <li><a href="<?=base_url()?>material/c">Crear</a></li>
+		  <?php endif;?>
+	     </ul>
       </li>
+		
+		
         <?php endif;?>
 	
     
