@@ -24,7 +24,7 @@
       </li> 
       <?php if($usuario=="admin"):?>
       <li class="nav-item">
-        <a class="nav-link" href="<?=base_url()?>anonymous/registrar">Registrar Usuario</a>
+        <a class="nav-link" href="<?=base_url()?>hdu/anonymous/registrar">Registrar Usuario</a>
       </li>
 		<?php endif;?>
 		

@@ -3,19 +3,7 @@
 class Anonymous_model extends CI_Model{
    
     public function init() {
-        // Inicializamos roles
-        $rolAdmin = R::dispense('rol');
-        $rolAdmin->nombre = 'admin';
-        $rolAdmin->alias('nivel')->xownUsuarioList=[];
-       
-        
-        R::store($rolAdmin);
-        
-        $rolUser = R::dispense('rol');
-        $rolUser->nombre = 'user';
-        $rolUser->alias('nivel')->xownUsuarioList=[];
-        R::store($rolUser);
-        
+                       
         $cA1=R::dispense('categoriaaula');
         $cA1->nombre('Biblioteca');
         R::store($cA1);
@@ -44,7 +32,7 @@ class Anonymous_model extends CI_Model{
         $usuarioAdmin->nombre = 'Administrador';
         $usuarioAdmin->username = 'admin';
         $usuarioAdmin->password = password_hash('admin', PASSWORD_DEFAULT);
-        $usuarioAdmin->nivel=$rolAdmin;
+        $usuarioAdmin->rol='admin';
         R::store($usuarioAdmin);
        
         
@@ -60,31 +48,27 @@ class Anonymous_model extends CI_Model{
                 throw new Exception('Contraseña incorrecta');
             }else{
                 $_SESSION['usuario']=$usuario;
-                $_SESSION['rol']=$usuario->nivel->nombre;
+                $_SESSION['rol']=$usuario->rol;
                 return $usuario;
             }
         }
     }
     
-    public function registrarUsuario($nombre,$username,$pwd,$idDepar){
+    public function registrarUsuario($nombre,$apellidos,$username,$pwd,$idDepar,$fotoPerfil){
         
-        $valido=($nombre!=null && $username!=null &&  $pwd != null && $idDepar!= null);
+        $valido=($nombre!=null && $apellidos!=null && $username!=null &&  $pwd != null && $idDepar!= null);
         if($valido){
             $usuario=R::dispense('usuario');
-            $departamento=R::load('departamento',$idDepar);
-            $rol=R::dispense('rol');
-            $rol->nombre='user';
-            R::store($rol);
-            
+            $departamento=R::load('departamento',$idDepar);          
             $usuario->nombre=$nombre;
+            $usuario->apellidos=$apellidos;
             $usuario->username=$username;
             $usuario->password=password_hash($pwd, PASSWORD_DEFAULT);
             $usuario->tiene=$departamento;
-            $usuario->nivel=$rol;
+            $usuario->fotoPerfil=$fotoPerfil;
+            $usuario->rol='user';
             $usuario->alias('usuarios')->xownReservaList=[];
            
-            
-            
             R::store($usuario);
             
         }else{

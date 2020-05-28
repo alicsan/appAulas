@@ -4,7 +4,7 @@
 <h1>Registrar usuario</h1>
 </div>
 
-<form action="<?=base_url()?>anonymous/registrarPost" method="post">
+<form action="<?=base_url()?>hdu/anonymous/registrarPost" enctype='multipart/form-data' method="post">
 
 	 <div class="form-group">
 	<label for="nombre">Nombre</label>
@@ -12,8 +12,20 @@
 	</div>
 	
 	<div class="form-group">
-	<label for="username">Nombre de usuario</label>
-	<input id="username" type="text" name="username" class="form-control">
+	<label for="apellido">Apellido</label>
+	<input id="apellido" type="text" name="apellido" class="form-control">
+	</div>
+	
+       <div class="file-field">
+        <label>Foto de perfil</label><br>
+        <div class="btn btn-primary btn-sm">
+           <input type="file" name="fperfil">
+        </div>
+       <br>
+	
+	<div class="form-group">
+		<label for="username">Nombre de usuario</label>
+		<input id="username" type="text" name="username" class="form-control">
 	</div>
 	
 	<div class="form-group">

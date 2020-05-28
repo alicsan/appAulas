@@ -11,14 +11,24 @@ class Anonymous extends CI_Controller{
     }
         
         public function registrarPost(){
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = '100';
+            $config['max_width'] = '1024';
+            $config['max_height'] = '768';
             $this->load->model('anonymous_model');
-            
+            $this->load->library('upload', $config);
             $nombre= isset($_POST['nombre']) ? $_POST['nombre'] : null;
+            $apellido=isset($_POST['apellido']) ? $_POST['apellido'] : null;
+            
+            $fotoPerfil=isset($_POST['fperfil']) ? $_POST['fperfil'] : 'default.jpg';
+            
             $username= isset($_POST['username']) ? $_POST['username'] : null;
             $pwd=isset($_POST['pwd']) ? $_POST['pwd'] : null;
             $idDepar=isset($_POST['idDepar']) ? $_POST['idDepar'] : null;
             try{
-                $this->anonymous_model->registrarUsuario($nombre,$username,$pwd,$idDepar);
+                $this->upload->do_upload($fotoPerfil);                
+              $this->anonymous_model->registrarUsuario($nombre,$apellido,$username,$pwd,$idDepar,$fotoPerfil);
               $this-> PRG('Usuario registrado con éxito.','/','success');
             }catch(Exception $e){
                $this->PRG($e->getMessage(),'/','danger');
