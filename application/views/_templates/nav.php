@@ -1,8 +1,12 @@
 <?php $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon"?>
+<?= var_dump($_SESSION['rol'])?>
 
 <nav class="container navbar navbar-inverse fondoNegro">
   <div class="navbar-header">
-    <a class="navbar-brand" href="<?=base_url()?>"> Inicio</a>
+    <a class="navbar-brand" 
+    <?php if ($usuario=='anon'):?> href="<?=base_url()?>"
+    <?php else:?> href="<?=base_url()?>hdu/user/homepage" 
+    <?php endif;?>> Inicio</a>
  
   </div>
   
@@ -22,11 +26,15 @@
 			
  	     </ul> 
       </li> 
-      <?php if($usuario=="admin"):?>
+      
       <li class="nav-item">
         <a class="nav-link" href="<?=base_url()?>hdu/anonymous/registrar">Registrar Usuario</a>
       </li>
-		<?php endif;?>
+      
+     
+      <li class="nav-item">
+        <a class="nav-link" href="<?=base_url()?>calendario/r">Calendario</a>
+      </li>
 		
 		<?php if($usuario=="user" || $usuario=="admin"):?>
     <li class="dropdown">
@@ -60,12 +68,13 @@
       </li>
 	</ul>
     
+    <ul class="dropdown-menu">
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
            Materiales<span class="caret"></span>
         </a>
         
-		<ul class="dropdown-menu">
+		
 		  <li><a href="<?=base_url()?>material/r">Listar</a></li>
 		  <?php if($usuario=="admin"):?>
 		  <li><a href="<?=base_url()?>material/c">Crear</a></li>

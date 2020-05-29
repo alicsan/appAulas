@@ -6,31 +6,32 @@
 
 <form action="<?=base_url()?>hdu/anonymous/registrarPost" enctype='multipart/form-data' method="post">
 
-	 <div class="form-group">
+	 <div class="input-field col s12">
 	<label for="nombre">Nombre</label>
-	<input id="nombre" type="text" name="nombre" class="form-control">
+	<input type="text" id="nombre" name="nombre">
 	</div>
 	
-	<div class="form-group">
+	<div class="input-field col s12">
 	<label for="apellido">Apellido</label>
-	<input id="apellido" type="text" name="apellido" class="form-control">
+	<input id="apellido" type="text" name="apellido" class="">
 	</div>
 	
-       <div class="file-field">
-        <label>Foto de perfil</label><br>
-        <div class="btn btn-primary btn-sm">
-           <input type="file" name="fperfil">
+       <div class="file-field input-field col s12">
+        	<div class="btn waves-effect">
+        	<span>Foto de perfil</span>
+        	<input type="file" name="fperfil" class="">
+        	</div>
         </div>
        <br>
-	
-	<div class="form-group">
+	<br>
+	<div class="input-field col s12">
 		<label for="username">Nombre de usuario</label>
-		<input id="username" type="text" name="username" class="form-control">
+		<input id="username" type="text" name="username" class="">
 	</div>
 	
-	<div class="form-group">
+	<div class="input-field col s12">
 	<label for="pwd">Contraseña</label>
-	<input id="pwd" type="password" name="pwd" class="form-control">
+	<input id="pwd" type="password" name="pwd" class="">
 	</div>
 
 	<div class="form-group">
@@ -42,8 +43,10 @@
 	</select>
 	</div>
 
-
-	<input type="submit"/>
+	<button class="btn waves-effect waves-light"  onclick="submit()" name="action">
+			Registrar <i class="material-icons left">send</i>
+			</button>
+	
 </form>
 
 

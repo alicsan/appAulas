@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
- 	 	<h1>Reservar Aula</h1>
+ 	 	<h4>Reservar Aula</h4>
 	</div>
 
 <!-- Los datos del usuario se rellenarán con los datos de la persona conectada
@@ -8,32 +8,63 @@ cuando el login funcione correctamente.  -->
 
 	<form action="<?= base_url()?>reserva/cPost" method="post">
 
-	<div class="form-group">
-	<label for="idProfe">Profesor:</label>
+	<fieldset>
+	<legend>Usuario</legend>
 	<select name="idProfe" class="form-control">
     <?php foreach($usuarios as $usuario):?>
     <option value="<?=$usuario->id?>"> <?=$usuario->nombre ?></option>
     <?php endforeach;?>
 	</select>
-	</div>
+	</fieldset>
 	
-	<div class="form-check form-check-inline">
-	<label for="idAula" >Aulas:</label><br>
+	<fieldset>
+	<legend>Aulas</legend>
+	<select name="idAula[]"  class="form-control">
 	<?php foreach($aulas as $aula):?>
-	<input type="checkbox"  class="form-check-input" id="idAula<?=$aula->id?>" name="idAula[]" value="<?=$aula->id?>"/>
-    <label for="idAula<?=$aula->id?>" class="form-check-label" ><?=$aula->pertenece->nombre?> <?=$aula->nombre?></label>
-    <?php endforeach;?>
-	</div>
-	<br>
-	<div class="form-group">
-	<label for="fechaInicio">Inicio de reserva</label><br>
-	<input type="datetime-local" name="fechaInicio" class="form-control">
-	</div>
+	 <option value="<?=$aula->id?>"><?=$aula->pertenece->nombre?> <?=$aula->nombre ?></option>
+	  <?php endforeach;?>
+	</select>
+	</fieldset>
 	
-	<div class="form-group">
-	<label for="fechaFin">Fin de reserva</label><br>
-	<input type="datetime-local" name="fechaFin" class="form-control">
-	</div>
+	
+	<fieldset>
+	<legend>Día y hora de la reserva</legend>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+                <input type='text' class="form-control" name="fechaInicio"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker2'>
+                <input type='text' class="form-control"  name="fechaFin" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+     </div>
+   </fieldset>
+
+<script> 
+$(function () {
+    $('#datetimepicker1').datetimepicker();
+    $('#datetimepicker2').datetimepicker({
+        useCurrent: false //Important! See issue #1075
+    });
+    $("#datetimepicker1").on("dp.change", function (e) {
+        $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+    });
+    $("#datetimepicker2").on("dp.change", function (e) {
+        $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
+    });
+});
+</script>
 	
 	
 	<input type="submit">

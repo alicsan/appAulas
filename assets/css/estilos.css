@@ -59,3 +59,31 @@ footer
     margin-bottom: 1vh;
   }
 }
+
+
+/*.datepicker-date-display {
+    background-color: #607d8b;
+    color: black !important;
+}
+
+.datepicker-day-button:focus {
+    color: black !important;
+    background-color: #a2b0b6
+}
+
+.datepicker-done,
+.datepicker-cancel,
+.select-dropdown li>span,
+.is-today {
+    color: black !important
+}
+
+.datepicker-digital-display{
+  background-color: #4a1e69 !important;
+  color: black !important
+}
+
+.datepicker-row{
+	  color: black !important
+}*/
+
