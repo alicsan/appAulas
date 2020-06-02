@@ -1,5 +1,10 @@
 <?php $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon"?>
-<?= var_dump($_SESSION['rol'])?>
+<?php 
+echo var_dump($_SESSION['rol']);
+echo var_dump($_SESSION['informacion1']);
+echo var_dump($_SESSION['informacion2'])
+
+?>
 
 <nav class="container navbar navbar-inverse fondoNegro">
   <div class="navbar-header">

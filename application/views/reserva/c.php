@@ -31,40 +31,42 @@ cuando el login funcione correctamente.  -->
 	<legend>Día y hora de la reserva</legend>
     <div class='col-md-5'>
         <div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" name="fechaInicio"/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
+            <input type='text' class="form-control" id="picker1" name="fechaInicio"/>
         </div>
     </div>
     <div class='col-md-5'>
         <div class="form-group">
-            <div class='input-group date' id='datetimepicker2'>
-                <input type='text' class="form-control"  name="fechaFin" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
+              <input type='text' class="form-control" id="picker2" name="fechaFin" /> 
+           </div>
      </div>
    </fieldset>
 
-<script> 
-$(function () {
-    $('#datetimepicker1').datetimepicker();
-    $('#datetimepicker2').datetimepicker({
-        useCurrent: false //Important! See issue #1075
-    });
-    $("#datetimepicker1").on("dp.change", function (e) {
-        $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
-    });
-    $("#datetimepicker2").on("dp.change", function (e) {
-        $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);
-    });
-});
-</script>
+    <script> 
+     	$('#picker1').datetimepicker({
+				timepicker: true,
+				datepicker:true,
+				format:'d-m-Y H:i',
+				hours12:false,
+				allowTimes:[
+					'08:20','09:15','10:10','11:05','11:35',
+					'12:30','13:25','14:20','15:15'],
+				yearStart:2020,
+				yearEnd:2021
+					
+         	})
+         	$('#picker2').datetimepicker({
+				timepicker: true,
+				datepicker:true,
+				format:'d-m-Y H:i',
+				hours12:false,
+				allowTimes:[
+					'08:20','09:15','10:10','11:05','11:35',
+					'12:30','13:25','14:20','15:15'],
+				yearStart:2020,
+				yearEnd:2021
+					
+         	})
+    </script>
 	
 	
 	<input type="submit">

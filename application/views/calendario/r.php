@@ -1,7 +1,5 @@
-
-  
-    
    <script>
+   //var events=json_encode();
    	$(document).ready(function(){
    		var calendar=$('#calendar').fullCalendar({
    			editable:true,
@@ -10,8 +8,15 @@
    				center:'title',
    				right:'month,agendaWeek,angendaDay'
    			},
-   			event:"<?=base_url()?>calendario/load"
-   		});
+   			buttonText:{
+				today : 'hoy',
+				month: 'mes',
+				week: 'semana',
+				day: 'día'
+			   },
+			   events:"<?=base_url()?>calendario/load()"
+				   
+    		});
    	});
    
    </script>  
@@ -19,6 +24,7 @@
        
       
         <div class="container">
-         
-            <div id="calendar"></div>
+          
+           <div id="calendar"></div>
+       
         </div>
