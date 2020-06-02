@@ -45,7 +45,7 @@ cuando el login funcione correctamente.  -->
      	$('#picker1').datetimepicker({
 				timepicker: true,
 				datepicker:true,
-				format:'d-m-Y H:i',
+				format:'Y-m-d H:i',
 				hours12:false,
 				allowTimes:[
 					'08:20','09:15','10:10','11:05','11:35',
@@ -57,7 +57,7 @@ cuando el login funcione correctamente.  -->
          	$('#picker2').datetimepicker({
 				timepicker: true,
 				datepicker:true,
-				format:'d-m-Y H:i',
+				format:'Y-m-d H:i',
 				hours12:false,
 				allowTimes:[
 					'08:20','09:15','10:10','11:05','11:35',

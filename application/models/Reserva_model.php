@@ -7,7 +7,7 @@ class Reserva_model extends CI_Model{
             $reserva=R::dispense('reserva');
             $usuario=R::load('usuario',$idProfesor);
             $aula=R::load('aula',$idAula);
-            
+                    
             $reserva->usuarios=$usuario;
             $reserva->fechaInicio=$fechaInicio;
             $reserva->fechaFin=$fechaFin;

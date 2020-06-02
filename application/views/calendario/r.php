@@ -14,8 +14,16 @@
 				week: 'semana',
 				day: 'día'
 			   },
-			   events:"<?=base_url()?>calendario/load()"
-				   
+			   events:[
+					<?php foreach ($reservas as $reserva):?>
+				   {
+					   title:'<?=$reserva->aulas->pertenece->nombre?>',
+					   start:'<?=$reserva->fecha_inicio?>',
+					   end:'<?=$reserva->fecha_fin?>'
+				   },
+				   <?php endforeach;?>
+				   ]
+			   
     		});
    	});
    

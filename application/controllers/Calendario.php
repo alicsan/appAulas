@@ -8,24 +8,25 @@ class Calendario extends CI_Controller{
     }
     
     public function r(){
-        frame($this,'calendario/r');
+        $this->load->model('calendario_model');
+        $data['reservas']=$this->calendario_model->getEventos();
+//         foreach($reservas as $reserva){
+//             $data=array(
+//                 'id' => $reserva->id,
+//                 'title' => $reserva->aulas_id->pertenece->nombre,
+//                 'start' => $reserva->fecha_inicio,
+//                 'end' =>   $reserva->fecha_fin
+//             );
+//             //id fecha_inicio fecha_fin usuarios_id aulas_id
+//         }
+        frame($this,'calendario/r',$data);
     }
     
     function load(){
-        $this->load->model('calendario_model');
-       $reservas=$this->calendario_model->fetch_all_events();
-        foreach($reservas->result_array() as $row){
-              $data=array(
-                   'id' => $row['id'],
-                   'title' => $row['title'],
-                   'start' => $row['start_event'],
-                   'end' =>   date('d-m-Y G:i:s', $row['end_event'])
-            );
-            
-        }
+      
        
-        $this->output->set_header('Content-Type: application/json');
-        return json_encode($data);
+        //$this->output->set_header('Content-Type: application/json');
+       // return json_encode($data);
     }
     
     public function load2(){
