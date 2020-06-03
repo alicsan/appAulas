@@ -1,5 +1,5 @@
 
-<div class="container">
+<!-- <div class="container">
   <div class="container"></div>
   <footer class="row">
     <div class="sozial col-xs-12 col-sm-6 col-sm-push-6">
@@ -24,16 +24,16 @@
             <img class="logo" src="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_google_plus-128.png">
           </a>
         </li>
-      </ul>-->
+      </ul>
     </div>
     
     <div class="copyright col-xs-12 col-sm-3 col-sm-pull-6">
       <p class="font-italic">  </p>
-    </div><!-- End Copyright -->
+    </div>
     
     <div class="impressum col-xs-12 col-sm-3 col-sm-pull-6">
       <p class="font-italic"> I.E.S Rey Fernando VI  </p>
       <p></p>
-    </div><!-- End Impressum -->
+    </div>
   </footer>
-</div>
+</div>  -->

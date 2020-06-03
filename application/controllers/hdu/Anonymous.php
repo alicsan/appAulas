@@ -79,6 +79,8 @@ class Anonymous extends CI_Controller{
             unset ($_SESSION['rol']);
             redirect(base_url(),'warning');
         }else{
+            unset ($_SESSION['usuario']);
+            unset ($_SESSION['rol']);
             $this->PRG('Debes haber iniciado sesión antes.', '/','warning');
             }
     }

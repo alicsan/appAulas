@@ -6,7 +6,7 @@ class Reserva extends CI_Controller{
         $id=isset($_POST['id']) ? $_POST['id'] : null;
         $this->load->model('usuario_model');
         $this->load->model('aula_model');
-        $data['usuarios']=$this->usuario_model->getUsuarios();
+        $data['usuario']=$this->usuario_model->getUsuarios();
         $data['aulas']=$this->aula_model->getAulas();
         frame($this,'reserva/c',$data);
     }

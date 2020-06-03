@@ -35,6 +35,13 @@ class Usuario_model extends CI_Model{
         }
         
     }
+    
+    public function getIDByUsername(){
+        $userName=$_SESSION['userName'];
+        $usuario=R::findOne('usuario','username=?',[$username]);
+        $userId=$usuario->id;
+        return $userId;
+    }
  
 
 }
