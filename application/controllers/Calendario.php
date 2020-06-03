@@ -9,9 +9,9 @@ class Calendario extends CI_Controller{
     
     public function r(){
         $this->load->model('calendario_model');
-        $this->load->model('usuario_model');
-        $userId=$this->usuario_model->getIDByUsername();
-        $data['reservas']=$this->calendario_model->getReservas($userId);
+//         $this->load->model('usuario_model');
+//         $userId=$this->usuario_model->getIDByUsername();
+        $data['reservas']=$this->calendario_model->getReservas();
         frame($this,'calendario/r',$data);
     }
     

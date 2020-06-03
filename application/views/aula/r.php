@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container fondoBlanco">
 
 <h1>Lista de Aulas</h1>
 

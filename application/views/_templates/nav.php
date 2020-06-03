@@ -4,24 +4,24 @@ isset($_SESSION['userName']) ? $_SESSION['userName'] : $_SESSION['userName']="jo
 
 ?>
 
-<nav>
-  <div class="nav-wrapper">
-    <div class="row">
-    		
+<nav class="nav">
+<div class="row">
+  <div class="nav-wrapper">		
     		<a class="brand-logo" <?php if ($usuario=='anon'):?> href="<?=base_url()?>"
   				 <?php else:?> href="<?=base_url()?>hdu/user/homepage" <?php endif;?>>
   				  <i class="material-icons large">home</i>Inicio</a>
     	
     </div>
+ 	
  
- 	<ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="<?=base_url()?>hdu/anonymous/login">Iniciar Sesión</a></li>
+ 	<ul  class="right hide-on-med-and-down">
+        <li><a class="waves-effect waves-light hoverable btn" href="<?=base_url()?>hdu/anonymous/login">Iniciar Sesión</a></li>
         <?php if($usuario!="anon"):?>
-        <li><a href="<?=base_url()?>hdu/anonymous/logout">Cerrar Sesión</a></li>
+        <li><a class="waves-effect waves-light hoverable btn" href="<?=base_url()?>hdu/anonymous/logout">Cerrar Sesión</a></li>
         <?php endif;?>
-
-      </ul>
+        </ul>
  
+ 	
  
   </div>
   </nav>

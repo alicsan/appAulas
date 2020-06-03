@@ -14,8 +14,6 @@
 	<script src="<?=base_url()?>assets/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<!-- <script src="<?=base_url()?>assets/js/materialize.min.js"></script>
-	<script src="<?=base_url()?>assets/js/funciones.js"></script>  --> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
@@ -25,4 +23,4 @@
 	<title>Gestión de Aulas</title>
 </head>
 
-<body>
+<body style="background-color:white;">
