@@ -1,9 +1,9 @@
 <div class="container">
-	<h1 class="alert alert-<?= $_SESSION['_msg']['severity'] ?>">
+	<h2 class="alert alert-<?= $_SESSION['_msg']['severity'] ?>">
 		<?=  $_SESSION['_msg']['texto']  ?>
-	</h1>
+	</h3>
 
 	<form action="<?= $_SESSION['_msg']['uri']?>" method="get">
-		<input class="button" type="submit" value="Volver">
+		<input class="btn waves-effect waves-light light-green lighten-1" type="submit" value="Volver">
 	</form>
 </div>

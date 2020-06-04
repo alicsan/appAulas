@@ -4,7 +4,7 @@
 <h1>Registrar usuario</h1>
 </div>
 
-<form action="<?=base_url()?>hdu/anonymous/registrarPost" enctype='multipart/form-data' method="post">
+<form action="<?=base_url()?>usuario/registrarPost" enctype='multipart/form-data' method="post">
 
 	 <div class="input-field col s12">
 	<label for="nombre">Nombre</label>

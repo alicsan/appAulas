@@ -15,9 +15,9 @@ isset($_SESSION['userName']) ? $_SESSION['userName'] : $_SESSION['userName']="jo
  	
  
  	<ul  class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light hoverable btn" href="<?=base_url()?>hdu/anonymous/login">Iniciar Sesión</a></li>
+        <li><a class="waves-effect waves-light hoverable btn light-green lighten-1" href="<?=base_url()?>hdu/anonymous/login">Iniciar Sesión</a></li>
         <?php if($usuario!="anon"):?>
-        <li><a class="waves-effect waves-light hoverable btn" href="<?=base_url()?>hdu/anonymous/logout">Cerrar Sesión</a></li>
+        <li><a class="waves-effect waves-light hoverable btn light-green lighten-1" href="<?=base_url()?>hdu/anonymous/logout">Cerrar Sesión</a></li>
         <?php endif;?>
         </ul>
  

@@ -3,37 +3,7 @@ class Anonymous extends CI_Controller{
   
     
     
-    public function registrar(){
-        $this->load->model('departamento_model');
-        $data['departamentos']=$this->departamento_model->getDepartamentos();
-        frame($this,'_hdu/anonymous/registrar',$data);
-            
-    }
-        
-        public function registrarPost(){
-            $config['upload_path'] = './uploads/';
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size'] = '100';
-            $config['max_width'] = '1024';
-            $config['max_height'] = '768';
-            $this->load->model('anonymous_model');
-            $this->load->library('upload', $config);
-            $nombre= isset($_POST['nombre']) ? $_POST['nombre'] : null;
-            $apellido=isset($_POST['apellido']) ? $_POST['apellido'] : null;
-            
-            $fotoPerfil=isset($_POST['fperfil']) ? $_POST['fperfil'] : 'default.jpg';
-            
-            $username= isset($_POST['username']) ? $_POST['username'] : null;
-            $pwd=isset($_POST['pwd']) ? $_POST['pwd'] : null;
-            $idDepar=isset($_POST['idDepar']) ? $_POST['idDepar'] : null;
-            try{
-                $this->upload->do_upload($fotoPerfil);                
-              $this->anonymous_model->registrarUsuario($nombre,$apellido,$username,$pwd,$idDepar,$fotoPerfil);
-              $this-> PRG('Usuario registrado con éxito.','/','success');
-            }catch(Exception $e){
-               $this->PRG($e->getMessage(),'/','danger');
-            }
-        }
+    
     
        
     public function login(){
@@ -75,13 +45,11 @@ class Anonymous extends CI_Controller{
         }
         
         if(isset($_SESSION['usuario'])){
-            unset ($_SESSION['usuario']);
-            unset ($_SESSION['rol']);
+            session_destroy();
             redirect(base_url(),'warning');
         }else{
-            unset ($_SESSION['usuario']);
-            unset ($_SESSION['rol']);
-            $this->PRG('Debes haber iniciado sesión antes.', '/','warning');
+            session_destroy();
+            redirect(base_url(),'warning');
             }
     }
     

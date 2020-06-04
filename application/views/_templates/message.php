@@ -1,4 +1,9 @@
 <div class="container">
-<h1><?=$texto?></h1>
-<a href="<?=base_url()?><?=$uri?>"><button>Volver</button></a>
+	<div class="row">
+		<div class="center">
+		<h3><?=$texto?></h3>
+		<a href="<?=base_url()?><?=$uri?>">
+		<button	class="btn waves-effect waves-light light-green lighten-1">Volver</button></a>
+	</div>
+	</div>
 </div>
