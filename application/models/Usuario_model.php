@@ -17,7 +17,7 @@ class Usuario_model extends CI_Model{
             throw $e;
         }
     }
-    public function getUsuario($id){
+    public function getUserById($id){
         return R::load('usuario', $id);
     }
     

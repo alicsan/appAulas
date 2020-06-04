@@ -1,47 +1,44 @@
 <div class="container">
 	<div class="row">
- 	 	<h4>Reservar Aula</h4>
+ 	 	<h4 class="center">Reservar Aula <?=$usuario->nombre?></h4>
 	</div>
-
-<!-- Los datos del usuario se rellenarán con los datos de la persona conectada
-cuando el login funcione correctamente.  -->
-
+ <div class="row">
 	<form action="<?= base_url()?>reserva/cPost" method="post">
+		<input type="hidden" value="<?=$usuario->id?>"  name="uid" id="uid">
+			
+		<div class="row">
+			<div class="input-field col s6">		
+				<label for="fechaInicio">Inicio de reserva</label>
+            	<input type='text' class="form-control" id="picker1" name="fechaInicio"/>
+    		</div>
 
-	<fieldset>
-	<legend>Usuario</legend>
-	<select name="idProfe" class="form-control">
-    <?php foreach($usuarios as $usuario):?>
-    <option value="<?=$usuario->id?>"> <?=$usuario->nombre ?></option>
-    <?php endforeach;?>
-	</select>
-	</fieldset>
-	
-	<fieldset>
-	<legend>Aulas</legend>
-	<select name="idAula[]"  class="form-control">
-	<?php foreach($aulas as $aula):?>
-	 <option value="<?=$aula->id?>"><?=$aula->pertenece->nombre?> <?=$aula->nombre ?></option>
-	  <?php endforeach;?>
-	</select>
-	</fieldset>
-	
-	
-	<fieldset>
-	<legend>Día y hora de la reserva</legend>
-    <div class='col-md-5'>
-        <div class="form-group">
-            <input type='text' class="form-control" id="picker1" name="fechaInicio"/>
-        </div>
-    </div>
-    <div class='col-md-5'>
-        <div class="form-group">
-              <input type='text' class="form-control" id="picker2" name="fechaFin" /> 
+   			 <div class='input-field col s6'>
+       		  <label for="fechaFin">Fin de reserva</label>
+              <input type='text' class="form-control" id="picker2" name="fechaFin">
            </div>
      </div>
-   </fieldset>
-
-    <script> 
+			
+	<div class="col s12">
+	  <select name="idAula[]" class="browser-default">
+	  <option value="" disabled selected>Elige un aula</option>
+	 	<?php foreach($aulas as $aula):?>
+	 		<option value="<?=$aula->id?>"><?=$aula->pertenece->nombre?> <?=$aula->nombre?></option>
+	  	<?php endforeach;?>
+	  	</select>
+	</div>
+	<div class="row">
+		<div class="col m12">
+			<div class="center">
+				<button class="btn waves-effect waves-light light-green lighten-1" onclick="submit()">Reservar
+    				<i class="material-icons right">send</i>
+ 			 	</button>
+  			</div>
+  		</div>	
+  	</div>
+	</form>
+</div>
+</div>
+   <script> 
      	$('#picker1').datetimepicker({
 				timepicker: true,
 				datepicker:true,
@@ -67,9 +64,3 @@ cuando el login funcione correctamente.  -->
 					
          	})
     </script>
-	
-	
-	<input type="submit">
-	</form>
-
-</div>

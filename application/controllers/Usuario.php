@@ -37,7 +37,7 @@ class Usuario extends CI_Controller{
     
         public function r(){  
             $user=$_SESSION['usuario'];
-            if($user->nivel->nombre=='admin'){
+            if($user->rol=='admin'){
             $this->load->model('usuario_model');
             $data['usuarios']=$this->usuario_model->getUsuarios();
             frame($this,'usuario/r',$data);

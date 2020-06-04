@@ -43,7 +43,7 @@
 	</select>
 	</div>
 
-	<button class="btn waves-effect waves-light"  onclick="submit()" name="action">
+	<button class="btn waves-effect waves-light light-green lighten-1"  onclick="submit()" name="action">
 			Registrar <i class="material-icons left">send</i>
 			</button>
 	
