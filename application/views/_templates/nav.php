@@ -1,7 +1,6 @@
 <?php $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon"?>
 <?php 
 isset($_SESSION['userName']) ? $_SESSION['userName'] : $_SESSION['userName']="jolines";
-
 ?>
 
 <nav class="nav">
@@ -15,7 +14,10 @@ isset($_SESSION['userName']) ? $_SESSION['userName'] : $_SESSION['userName']="jo
  	
  
  	<ul  class="right hide-on-med-and-down">
-        <li><a class="waves-effect waves-light hoverable btn light-green lighten-1" href="<?=base_url()?>hdu/anonymous/login">Iniciar Sesión</a></li>
+ 	<?php //if($usuario == "admin" || $usuario == "user"):?>
+      <!-- <li><a class="waves-effect waves-light hoverable btn light-green lighten-1" href="<?=base_url()?>hdu/anonymous/login">Iniciar Sesión</a></li> -->  
+        <?php //endif;?>
+        
         <?php if($usuario!="anon"):?>
         <li><a class="waves-effect waves-light hoverable btn light-green lighten-1" href="<?=base_url()?>hdu/anonymous/logout">Cerrar Sesión</a></li>
         <?php endif;?>
