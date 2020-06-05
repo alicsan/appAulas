@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
 
 	<h1>Materiales</h1>
 

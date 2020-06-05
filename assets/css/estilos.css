@@ -1,3 +1,5 @@
+
+
 body{
   background-color: #ffffff !important;
   display: flex;
@@ -5,14 +7,10 @@ body{
   flex-direction: column;
   }
 
- main {
+ .content{
     flex: 1 0 auto;
   }
 
-.fondoBlanco{
-	background-color: #ffffff !important;
-}
-
-fondoCyan{
-	background-color: #00838f !important;
+.footer{
+	flex-shrink:0;
 }

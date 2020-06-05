@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
 <div class="row">
 <h1>Nuevo tipo de aula</h1>
 </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
 <div class="row">
 		<h4 class="center">Iniciar sesión</h4>
 	</div>

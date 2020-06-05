@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
 	<div class="row">
 		<h3 class="center">Gestión de Aulas</h3>
 	</div>

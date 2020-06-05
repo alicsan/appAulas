@@ -3,7 +3,7 @@
     $usuario=isset($_SESSION['usuario']) ? $_SESSION['usuario'] : $_SESSION['usuario']="anon";
        $uid=$usuario->id;
 ?>
-<div class="container">
+<div class="container content">
 
 <?php if($usuario->rol=="user"):?>
 	<div class="row">
