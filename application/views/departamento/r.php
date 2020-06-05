@@ -1,8 +1,9 @@
 <div class="container content">
-
-	<h1>Lista de departamentos</h1>
-
-		<table class="table table-striped table-hover">
+	
+	<div class="row">
+	<h1 class="center">Lista de departamentos</h1>
+	</div>
+		<table class="highlight striped">
 		<tr>
 			<th>Nombre</th>
 			<th>Acciones</th>
@@ -23,9 +24,10 @@
 		</tr>
 	<?php endforeach;?>
 </table>
-
+<div class="divider"></div>
 <div class="row">
-<a href="<?=base_url()?>departamento/c"><button class="button">Nuevo</button></a>
-	<a href="<?=base_url()?>"><button class="button">Volver</button></a>
+<div class="center">
+<a href="<?=base_url()?>departamento/c" class="btn waves-effect waves-light light-green lighten-1">Añadir Departamento<a>
+</div>
 </div>
 </div>

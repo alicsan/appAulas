@@ -1,8 +1,10 @@
 <div class="container">
 
-<h1>Lista de usuarios</h1>
+<div class="row">
+		<h4 class="center">Listado de Usuarios</h4>
+	</div>
 
-<table class="table table-striped table-hover">
+<table class="centered hightlight">
 	<tr>
 		<th>Username</th>
 		<th>Nombre</th>
@@ -36,9 +38,11 @@
 	</tr>
 	<?php endforeach;?>
 </table>
+<div class="col s12">
+				<div class="center">
+				<a href="<?=base_url()?>usuario/c" class="btn waves-effect waves-light light-green lighten-1">Registrar un usuario nuevo</a>
+				</div>
+			</div>
 
-
-<a href="<?=base_url()?>usuario/c"><button>Nueva</button></a>
-<a href="<?=base_url()?>"><button>Volver</button></a>
 
 </div>

@@ -1,8 +1,10 @@
 <div class="container content">
 
-	<h1>Materiales</h1>
+	<div class="row">
+		<h4 class="center">Materiales</h4>
+	</div>
 
-		<table class="table table-striped table-hover">
+		<table class="highlight striped">
 		<tr>
 			<th>Nombre</th>
 			<th>Observaciones</th>
@@ -16,16 +18,14 @@
 			<td>
 				<form action="<?=base_url()?>material/d" method="post">
 					<input type="hidden" name="idMaterial" value="<?=$material->id?>">
-					<button onclick="submit()">
-						<img src="<?=base_url()?>/assets/img/basura.png" height="20"
-							width="20">
-					</button>
+					<button onclick="submit()" class="btn-floating waves-effect waves-light">
+					<i class="large material-icons">delete</i>
+				</button>
 				</form>
 				<form action="<?=base_url()?>material/u" method="post">
 				<input type="hidden" name="idMaterial" value="<?=$material->id?>">
-				<button onclick="submit()">
-					<img src="<?=base_url()?>/assets/img/lapiz.png" height="20"
-						width="20">
+				<button onclick="submit()" class="btn-floating waves-effect waves-light">
+					<i class="large material-icons">edit</i>
 				</button>
 			</form>
 			</td>
@@ -33,8 +33,12 @@
 	<?php endforeach;?>
 </table>
 
-<div class="row">
-<a href="<?=base_url()?>material/c"><button class="button">Nuevo</button></a>
-	<a href="<?=base_url()?>"><button class="button">Volver</button></a>
-</div>
+<div class="divider"></div>
+	
+	<div class="col s12">
+				<div class="center">
+				<a href="<?=base_url()?>material/c" class="btn waves-effect waves-light light-green lighten-1">Añadir</a>
+				</div>
+			</div>
+
 </div>

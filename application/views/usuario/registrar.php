@@ -1,8 +1,8 @@
 <div class="container">
 
-<div class="row">
-<h1>Registrar usuario</h1>
-</div>
+	<div class="row">
+		<h4 class="center">Registrar usuario</h4>
+	</div>
 
 <form action="<?=base_url()?>usuario/registrarPost" enctype='multipart/form-data' method="post">
 
@@ -34,7 +34,7 @@
 	<input id="pwd" type="password" name="pwd" class="">
 	</div>
 
-	<div class="form-group">
+	<div class="col s12">
 	<label for="idDepar">Departamento </label>
 	<select id="idDepar" name="idDepar" class="form-control">
 		<?php foreach ($departamentos as $departamento):?>
@@ -42,10 +42,18 @@
 		<?php endforeach;?>
 	</select>
 	</div>
-
-	<button class="btn waves-effect waves-light light-green lighten-1"  onclick="submit()" name="action">
+	
+	<div class="divider"></div>
+	
+	<div class="col s12">
+				<div class="center">
+				<button class="btn waves-effect waves-light light-green lighten-1"  onclick="submit()" name="action">
 			Registrar <i class="material-icons left">send</i>
 			</button>
+				</div>
+			</div>
+	
+	
 	
 </form>
 

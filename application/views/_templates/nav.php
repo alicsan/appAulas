@@ -8,15 +8,14 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
   <div class="nav-wrapper">		
   <?php 
   if($usuario=="anon"){
-      echo "<a class=\"brand-logo\" href=".base_url()."<i class=\"material-icons large\">home</i></a>";
+      echo "<a class=\"brand-logo\" href=".base_url()."><i class=\"material-icons large right\">home</i></a>";
   }
   if($usuario=="user"){
-      echo " <a class=\"brand-logo\" href=".base_url()."hdu/user/homepage\"><i class=\"material-icons large\">home</i>Inicio</a>" ; 
+      echo " <a class=\"brand-logo\" href=".base_url()."hdu/user/homepage \"><i class=\"material-icons large right\">home</i></a>" ; 
   }
   if($usuario=="admin"){
-      echo " <a class=\"brand-logo\" href=".base_url()."hdu/user/homepageAdmin\"><i class=\"material-icons large\">home</i>Inicio</a>" ;
+      echo "<a class=\"brand-logo\" href=".base_url()."hdu/user/homepageAdmin\"><i class=\"material-icons large right\">home</i></a>" ;
   }
-  
   ?>
 			  
     </div> 

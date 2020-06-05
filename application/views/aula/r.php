@@ -1,8 +1,10 @@
 <div class="container fondoBlanco content" >
+<div class="row">
+	<h4 class="center">Listado de Aulas</h4>
+</div>
 
-<h1>Lista de Aulas</h1>
 
-<table class="table table-hover table-dark">
+<table class="highlight striped">
 	<tr>
 		<th>Tipo</th>
 		<th>Nombre</th>
@@ -19,26 +21,24 @@
 		<td><?= $aula->comentarios!=null?$aula->comentarios:'--'?></td>
 	
 		<td>
+		<div class="row">
+			<div class="col m2">
 			<form action="<?=base_url()?>aula/d" method="post">
 				<input type="hidden" name="id" value="<?=$aula->id?>">
-				<button onclick="submit()">
-					<img src="<?=base_url()?>/assets/img/basura.png" height="20"
-						width="20">
+				<button onclick="submit()" class="btn-floating waves-effect waves-light">
+					<i class="large material-icons">delete</i>
 				</button>
 			</form>
+			</div>
+			<div class="col m2">
 			<form action="<?=base_url()?>aula/u" method="post">
 				<input type="hidden" name="id" value="<?=$aula->id?>">
-				<button onclick="submit()">
-					<img src="<?=base_url()?>/assets/img/lapiz.png" height="20"
-						width="20">
+				<button onclick="submit()" class="btn-floating waves-effect waves-light">
+					<i class="large material-icons">edit</i>
 				</button>
 			</form>
-			<form action="<?=base_url()?>reserva/c" method="post">
-				<input type="hidden" name="id" value="<?=$aula->id?>">
-				<button onclick="submit()">
-					RESERVAR
-				</button>
-			</form>
+			</div>
+			</div>
 		</td>
 
 	</tr>
@@ -46,7 +46,13 @@
 </table>
 
 
-<a href="<?=base_url()?>aula/c"><button>Nueva</button></a>
-<a href="<?=base_url()?>"><button>Volver</button></a>
-
+ 	
+  	<div class="col s12">
+				<div class="center">
+				<a href="<?=base_url()?>aula/c" class="btn waves-effect waves-light light-green lighten-1">Añadir</a>
+				</div>
+			</div>
+		
+	
+<div class="divider"></div>
 </div>

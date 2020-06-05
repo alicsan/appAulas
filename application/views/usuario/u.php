@@ -1,21 +1,21 @@
 <div class="container">
 
-<div class="row">
-<h1>Editar usuario</h1>
-</div>
+	<div class="row">
+		<h4 class="center">Editar usuario</h4>
+	</div>
 
 
 <form action="<?=base_url()?>usuario/uPost" method="post">
 	<input type="hidden" name="id" value="<?=$usuario->id?>">
 	
-	<div class="form-group">
+	<div class="input-field col s12">
 	<label for="username">Nombre de usuario</label>
 	<input id="username" type="text" name="username" class="form-control" value="<?= $usuario->username?>">
 	</div>
 	
 		
 
-	<div class="form-group">
+	<div class="input-field col s12">
 	<label for="idDepar">Departamento </label>
 	<select id="idDepar" name="idDepar" class="form-control">
 		<?php foreach ($departamentos as $departamento):?>
@@ -24,10 +24,16 @@
 	</select>
 	</div>
 
-
-	<button class="btn btn-outline-dark" onclick="submit()">Actualizar</button>	
+	<div class="col s12">
+				<div class="center">
+				<button class="btn waves-effect waves-light light-green lighten-1"  onclick="submit()" name="action">
+			Actualizar <i class="material-icons left">send</i>
+			</button>
+				</div>
+			</div>
 </form>
 
-<a href="<?=base_url()?>"><button class="btn btn-outline-dark">Cancelar</button></a>
+	
+	
 
 </div>

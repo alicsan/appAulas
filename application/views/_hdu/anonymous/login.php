@@ -6,12 +6,12 @@
   
   <div class="input-field col s12">
   <label for="idnombre">Nombre de usuario</label>
-  <input class="form-control"id="idnombre" type="text" name="username"><br>
+  <input class="validate"id="idnombre" type="text" name="username"><br>
   </div>
   
   <div class="input-field col s12">
    <label for="idpwd">Contraseña</label>
-  <input class="form-control"id="idpwd" type="password" name="pwd">
+  <input class="validate"id="idpwd" type="password" name="pwd">
    <br>
    </div>
    

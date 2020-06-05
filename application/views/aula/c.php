@@ -1,34 +1,38 @@
-<div class="container content fondoBlanco">
+<div class="container content">
 <div class="row">
-	<h1>Nueva Aula</h1>
+	<h4 class="center">Nueva Aula</h4>
 </div>
 
 	<form action="<?=base_url()?>aula/cPost" method="post">
-		<div class="form-group">
+		
+		<div class="input-field col s12">
 		<label for="naula">Nombre</label>
 		<input type="text" class="form-control" name="naula" id="naula">
 		</div>
 	
-	<div class="form-group">
+	<div class="input-field col s12">
 	<label for="capacidad">Capacidad</label>
-		<input type="text"  class="form-control"name="capacidad" id="capacidad">
+		<input type="text"  class="validate"name="capacidad" id="capacidad">
 	</div>
 	
-	<div class="form-group">
+	<div class="input-field col s12">
 	<label for="comnentarios" >Comentarios</label>
-		<input type="text" class="form-control" name="comentarios" id="comentarios">
+		<input type="text" class="validate" name="comentarios" id="comentarios">
 	</div>
 	
-	<div class="form-group">
-	<label for="idCat">Categoría</label>
-	<select  name="idCat" class="form-control">
+	<div class="input-field col s12">
+	<select  name="idCat" class="">
 	<?php foreach($categorias as $categoria):?>
 	<option value="<?=$categoria->id?>" > <?=$categoria->nombre?> </option>
 	<?php endforeach;?>
 	</select>
 	</div>
-
-		<button class="btn btn-outline-dark" onclick="submit()">Crear</button>	
+	<div class="col m12">
+				<div class="center">
+					<button class="btn waves-effect waves-light light-green lighten-1" onclick="submit()">Crear</button>
+				</div>
+			</div>
+			
 	</form>
 
 </div>
