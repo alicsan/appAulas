@@ -6,6 +6,9 @@ class User extends CI_Controller{
         frame($this,'_hdu/user/homepage');
     }
     
+    public function homepageAdmin(){
+        frame($this,'_hdu/user/homepageAdmin');
+    }
    
   
     

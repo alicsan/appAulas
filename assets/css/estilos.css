@@ -1,11 +1,18 @@
-body
-{
+body{
   background-color: #ffffff !important;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  }
 
-}
+ main {
+    flex: 1 0 auto;
+  }
+
 .fondoBlanco{
 	background-color: #ffffff !important;
 }
 
-
-
+fondoCyan{
+	background-color: #00838f !important;
+}

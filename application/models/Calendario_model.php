@@ -2,14 +2,14 @@
 
 class Calendario_model extends CI_Model{
  
-    function getReservas($id){
-        $userReservas=R::findAll('reserva','usuarios_id=?',[$id]);
+    function getReservasById($id){
+        $userReservas=R::load('reserva','usuarios_id=?',[$id]);
         return $userReservas;
     }
 
-//     function getReservas(){
-//         return R::findAll('reserva');
-//     }
+    function getReservas(){
+        return R::findAll('reserva');
+    }
 }
 
 

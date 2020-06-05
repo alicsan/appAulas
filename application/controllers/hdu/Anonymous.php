@@ -1,11 +1,5 @@
 <?php
-class Anonymous extends CI_Controller{
-  
-    
-    
-    
-    
-       
+class Anonymous extends CI_Controller{   
     public function login(){
         frame($this,'_hdu/anonymous/login');
     }
@@ -26,7 +20,11 @@ class Anonymous extends CI_Controller{
         try{
             
           $usuario=$this->anonymous_model->verificarLogin($username,$pwd);
-                      redirect(base_url().'hdu/user/homepage');
+            
+                session_start();
+                $rol=$_SESSION['rol'];
+                $rol=="user" ? redirect(base_url().'hdu/user/homepage') : redirect(base_url().'hdu/user/homepageAdmin');
+                      
         }catch(Exception $e){
           $this->PRG($e->getMessage(),'/','danger');
         }
