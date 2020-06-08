@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
 	<div class="row">
 		<h1 class="center">Reservas</h1>
 	</div>
