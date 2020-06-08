@@ -7,11 +7,21 @@ class Calendario extends CI_Controller{
        
     }
     
-    public function r(){
+    public function rAll(){
         $this->load->model('calendario_model');
         $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
+        $data ['idUsuario']=$uid;
         $data['reservas']=$this->calendario_model->getReservas();
-        frame($this,'calendario/r',$data);
+        frame($this,'calendario/rAll',$data);
+    }
+    
+    
+    public function rUser(){
+        $this->load->model('calendario_model');
+        $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
+        $data ['idUsuario']=$uid;
+        $data['reservas']=$this->calendario_model->getReservasById($uid);
+        frame($this,'calendario/rUser',$data);
     }
     
   

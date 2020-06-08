@@ -1,5 +1,4 @@
 <?php 
-//session_start();
     $usuario=isset($_SESSION['usuario']) ? $_SESSION['usuario'] : $_SESSION['usuario']="anon";
        $uid=$usuario->id;
 ?>
@@ -9,6 +8,7 @@
 	<div class="row">
 		<h4 class="center">Área Personal</h4>
 	</div>
+	<?php var_dump($uid)?>
 	<div class="divider"></div>
 	 
 	 
@@ -31,7 +31,7 @@
     <div class="card-content grey lighten-4 center">
       <div id="test1">
     		<form action="<?= base_url()?>reserva/c" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Reservar Aula
 				</button>
@@ -47,12 +47,52 @@
 	   </div>
     </div>
   </div>
+  <!-- ------------------------------------------------- CALENDARIO -------------------------------------------------------------- -->
 
- 
+ <div class="row">
+		 <div class="card">
+    <div class="card-content">
+    </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+      
+        <li class="tab">
+        <a href="#calendario1">Tus Reservas</a>
+        </li>
+        
+        <li class="tab">
+        <a href="#calendario2">Todas las reservas</a>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="card-content grey lighten-4 center">
+    
+      <div id="calendario1">
+    		<form action="<?=base_url()?>calendario/rUser" method="post">
+				<input type="hidden" name="uid" value="<?=$uid?>">
+				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
+					<i class="material-icons large right">insert_invitation</i>Calendario
+				</button>
+			</form>  
+	      </div>
+	
+		<div id="calendario2">
+    		<form action="<?=base_url()?>calendario/rAll" method="post">
+				<input type="hidden" name="uid" value="<?=$uid?>">
+				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
+					<i class="material-icons large right">insert_invitation</i>Calendario
+				</button>
+			</form>  
+	      </div>
+	    
+	   </div>
+    </div>
+  </div>
  
  <div class="divider"></div>
  
- <!-- ------------------------------------CARTA DEPARTAMENTOS----------------------------------------- -->
+ <!-- ------------------------------------CARTA AULAS----------------------------------------- -->
  
   <div class="row">
 		 <div class="card">
@@ -80,7 +120,7 @@
     <div class="card-content grey lighten-4 center">
       <div id="listAula">
     		<form action="<?= base_url()?>aula/r" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large">arrow_forward</i>
 				</button>
@@ -97,7 +137,7 @@
 	     
 	     <div id="listCAula">
     		<form action="<?= base_url()?>categoriaAula/r" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large">arrow_forward</i>
 				</button>
@@ -105,7 +145,7 @@
 	      </div>
 	      <div id="addCAula">
     		<form action="<?= base_url()?>categoriaAula/c" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large">add</i>
 				</button>
@@ -117,7 +157,7 @@
   </div>
  
 
- <!-- ------------------------------------CARTA DEPARTAMENTO SOLO PARA ADMIN----------------------------------------- -->
+ <!-- ------------------------------------CARTA DEPARTAMENTO----------------------------------------- -->
  	
  	<div class="divider"></div>
  	
@@ -140,7 +180,7 @@
     <div class="card-content grey lighten-4 center">
       <div id="test3">
     		<form action="<?= base_url()?>departamento/r" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large">arrow_forward</i>
 				</button>
@@ -159,7 +199,7 @@
     </div>
   </div>
  
- <!-- ------------------------------------CARTA MATERIALES SOLO PARA ADMIN----------------------------------------- -->
+ <!-- ------------------------------------CARTA MATERIALES----------------------------------------- -->
  	<div class="divider"></div>
  	
  	<div class="row">
@@ -181,7 +221,7 @@
     <div class="card-content grey lighten-4 center">
       <div id="matList">
     		<form action="<?= base_url()?>material/r" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large">arrow_forward</i>
 				</button>
@@ -202,7 +242,7 @@
  
 <div class="divider"></div>
 
-<!-- ------------------------------------REGISTRAR USUARIO SOLO PARA ADMIN----------------------------------------- -->
+<!-- ------------------------------------REGISTRAR USUARIO----------------------------------------- -->
 
 
 <div class="row">
@@ -219,7 +259,7 @@
     <div class="card-content grey lighten-4 center">
       <div id="matList">
     		<form action="<?=base_url()?>hdu/anonymous/registrar" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Registrar
 				</button>
@@ -232,33 +272,13 @@
   </div>
 	<div class="divider"></div>
 	
-	<div class="row">
-		 <div class="card">
-    <div class="card-content">
-    </div>
-    <div class="card-tabs">
-      <ul class="tabs tabs-fixed-width">
-        <li class="tab">
-        <a href="#matList">Calendario</a>
-        </li>
-      </ul>
-    </div>
-    <div class="card-content grey lighten-4 center">
-      <div id="matList">
-    		<form action="<?=base_url()?>calendario/r" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
-				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
-					<i class="material-icons large right">insert_invitation</i>Ver actuales reservas
-				</button>
-			</form>  
-	      </div>
 	
-	    
-	   </div>
-    </div>
-  </div>
 	
-	<div class="divider"></div>
+	
+	
+	
+	
+	
 
 
 </div>
