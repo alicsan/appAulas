@@ -2,7 +2,7 @@
 	<div class="row">
 		<h1 class="center">Reservas</h1>
 	</div>
-	<table class="centered highlight">
+	<table class="striped highlight">
 		<tr>
 		<th>Profesor</th>
 		<th>Aula</th>
@@ -11,8 +11,8 @@
 		</tr>
 	<?php foreach($reservas as $reserva):?>
 		<tr>
-			<td><?=$reserva->usuarios->nombre?></td>
-			<td><?=$reserva->aulas->pertenece->nombre?> <?=$reserva->aulas->nombre?></td>
+			<td><?=$reserva->usuario->nombre?></td>
+			<td><?=$reserva->aula->pertenece->nombre?> <?=$reserva->aula->nombre?></td>
 			<td><?=$reserva->fechaInicio?></td>
 			<td><?=$reserva->fechaFin?></td>		
 		</tr>

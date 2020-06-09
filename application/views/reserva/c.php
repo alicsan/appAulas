@@ -19,13 +19,14 @@
      </div>
 			
 	<div class="col s12">
-	  <select name="idAula[]" class="browser-default">
+	  <select name="idAula" class="browser-default">
 	  <option value="" disabled selected>Elige un aula</option>
 	 	<?php foreach($aulas as $aula):?>
 	 		<option value="<?=$aula->id?>"><?=$aula->pertenece->nombre?> <?=$aula->nombre?></option>
 	  	<?php endforeach;?>
 	  	</select>
 	</div>
+	<div class="divider"></div>
 	<div class="row">
 		<div class="col m12">
 			<div class="center">

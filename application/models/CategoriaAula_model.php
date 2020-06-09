@@ -27,7 +27,7 @@ class CategoriaAula_model extends CI_Model{
         if($valido){
             R::trash($cat);
         }else{
-            $e = ($id==null?new Exception("nulo"):new Exception("Error al eliminar la categor�a"));
+            $e = ($id==null?new Exception("nulo"):new Exception("Error al eliminar la categoría"));
             throw $e;
         }
     }

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <link rel="icon" href="assets/img/logo.png" type="image/gif">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/estilos.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/jquery.datetimepicker.css">
@@ -23,4 +23,4 @@
 	<title>Gestión de Aulas</title>
 </head>
 
-<body style="background-color:white;">
+<body>

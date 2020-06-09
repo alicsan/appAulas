@@ -45,7 +45,8 @@ class Usuario_model extends CI_Model{
     public function registrarUsuario($nombre,$apellidos,$username,$pwd,$idDepar,$fotoPerfil){
         
         $valido=($nombre!=null && $apellidos!=null && $username!=null &&  $pwd != null && $idDepar!= null);
-        if($valido){
+        $userOk=R::findOne('usuario','username=?',[$username]);
+        if($valido && $userOk==null){
             $usuario=R::dispense('usuario');
             $departamento=R::load('departamento',$idDepar);
             $usuario->nombre=$nombre;
@@ -65,6 +66,16 @@ class Usuario_model extends CI_Model{
         }
         
     }
+    
+    public function verificarRol($uid){
+        $usuario=R::load('usuario',$uid);
+        if($usuario->rol=="admin"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
 
 }
 

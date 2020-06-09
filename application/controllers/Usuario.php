@@ -4,13 +4,23 @@ session_start();
 class Usuario extends CI_Controller{ 
     
     public function registrar(){
+        $uid= isset($_POST['uid']) ? $_POST['uid'] : null;
+        $this->load->model('usuario_model');
+        $rolOk=$this->usuario_model->verificarRol($uid);
+        if($rolOk){
         $this->load->model('departamento_model');
         $data['departamentos']=$this->departamento_model->getDepartamentos();
         frame($this,'usuario/registrar',$data);
+        }
+        else{
+            $_SESSION['_msg']['texto'] = "Rol inadecuado";
+            redirect(base_url() . 'msg');
+        }
         
     }
     
     public function registrarPost(){
+        
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '100';
@@ -29,23 +39,21 @@ class Usuario extends CI_Controller{
         try{
             $this->upload->do_upload($fotoPerfil);
             $this->usuario_model->registrarUsuario($nombre,$apellido,$username,$pwd,$idDepar,$fotoPerfil);
-            $this-> PRG('Usuario registrado con éxito.','/','success');
+            redirect(base_url().'usuario/r');
         }catch(Exception $e){
-            $this->PRG($e->getMessage(),'usuario/r','danger');
+            $_SESSION['_msg']['texto']=$e->getMessage();
+            $_SESSION['_msg']['uri']='usuario/r';
+            redirect(base_url().'msg');
         }
+        
     }
     
         public function r(){  
-            $user=$_SESSION['usuario'];
-            if($user->rol=='admin'){
+           
             $this->load->model('usuario_model');
             $data['usuarios']=$this->usuario_model->getUsuarios();
             frame($this,'usuario/r',$data);
-            }else{
-                
-                $_SESSION['_msg']['texto'] = "Rol inadecuado";
-                redirect(base_url() . 'msg');
-            }
+            
         }
         
         public function d(){

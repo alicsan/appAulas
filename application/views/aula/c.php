@@ -4,6 +4,17 @@
 </div>
 
 	<form action="<?=base_url()?>aula/cPost" method="post">
+	<div class="col s12">
+	<h6 class="center">Tipo de Aula</h6>
+	</div>
+	
+	<div class="input-field col s12">
+	<select  name="idCat" class="">
+	<?php foreach($categorias as $categoria):?>
+	<option value="<?=$categoria->id?>" > <?=$categoria->nombre?> </option>
+	<?php endforeach;?>
+	</select>
+	</div>
 		
 		<div class="input-field col s12">
 		<label for="naula">Nombre</label>
@@ -20,13 +31,7 @@
 		<input type="text" class="validate" name="comentarios" id="comentarios">
 	</div>
 	
-	<div class="input-field col s12">
-	<select  name="idCat" class="">
-	<?php foreach($categorias as $categoria):?>
-	<option value="<?=$categoria->id?>" > <?=$categoria->nombre?> </option>
-	<?php endforeach;?>
-	</select>
-	</div>
+	
 	<div class="col m12">
 				<div class="center">
 					<button class="btn waves-effect waves-light light-green lighten-1" onclick="submit()">Crear</button>

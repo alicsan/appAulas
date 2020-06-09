@@ -13,7 +13,7 @@
 	
 	<div class="col s12">
 				<div class="center">
-				<a href="<?=base_url()?>aula/c" class="btn waves-effect waves-light light-green lighten-1">Añadir</a>
+				<button class="btn waves-effect waves-light light-green lighten-1" onclick="submit()">Añadir</button>
 				</div>
 			</div>
 	

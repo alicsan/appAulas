@@ -258,7 +258,7 @@
     </div>
     <div class="card-content grey lighten-4 center">
       <div id="matList">
-    		<form action="<?=base_url()?>hdu/anonymous/registrar" method="post">
+    		<form action="<?=base_url()?>usuario/registrar" method="post">
 				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Registrar

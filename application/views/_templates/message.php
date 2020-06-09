@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
 	<div class="row">
 		<div class="center">
 		<h3><?=$texto?></h3>
