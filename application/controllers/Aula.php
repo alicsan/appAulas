@@ -28,7 +28,9 @@ class Aula extends CI_Controller{
     }
     
         public function r(){
+            $id=isset($_POST['id']) ? $_POST['id'] : null;
             $this->load->model('aula_model');
+            $data['uid']=$id;
             $data['aulas']=$this->aula_model->getAulas();
             frame($this,'aula/r',$data);
         }

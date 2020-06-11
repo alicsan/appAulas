@@ -1,12 +1,12 @@
 <div class="container content">
 	
 	<div class="row">
-	<h1 class="center">Lista de departamentos</h1>
+	<h4 class="center">Departamentos</h4>
 	</div>
-		<table class="highlight striped">
+		<table class="triped">
 		<tr>
 			<th>Nombre</th>
-			<th>Acciones</th>
+			<th>--</th>
 		</tr>
 	
 	<?php foreach ($departamentos as $departamento): ?>
@@ -15,9 +15,8 @@
 			<td>
 				<form action="<?=base_url()?>departamento/delete" method="post">
 					<input type="hidden" name="id" value="<?=$departamento->id?>">
-					<button onclick="submit()">
-						<img src="<?=base_url()?>/assets/img/basura.png" height="20"
-							width="20">
+					<button onclick="submit()" class="btn-floating waves-effect waves-light red">
+						<i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Eliminar">delete</i>
 					</button>
 				</form>
 			</td>
@@ -25,9 +24,9 @@
 	<?php endforeach;?>
 </table>
 <div class="divider"></div>
-<div class="row">
-<div class="center">
-<a href="<?=base_url()?>departamento/c" class="btn waves-effect waves-light light-green lighten-1">Añadir Departamento<a>
+<div class="row ">
+<div class="col m12 center ">
+<a href="<?=base_url()?>departamento/c" class="btn waves-effect waves-light light-green lighten-1" style="margin-top:25px;">Añadir Departamento<a>
 </div>
 </div>
 </div>

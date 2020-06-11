@@ -13,6 +13,15 @@ class Reserva extends CI_Controller{
         frame($this,'reserva/c',$data);
     }
     
+    public function create(){
+        $this->load->model('usuario_model');
+        $this->load->model('aula_model');
+        $aulaId=isset($_POST['id']) ? $_POST['id'] : null;
+        $userId=isset($_POST['uid']) ? $_POST['uid'] : null;
+        $data['usuario']=$this->usuario_model->getUserById($userId);
+        $data['aula']=$this->aula_model->getAulaById($aulaId);
+        frame($this,'reserva/cU',$data);
+    }
     
     public function cPost(){
         $user=isset($_POST['uid']) ? $_POST['uid'] : null;
@@ -45,6 +54,8 @@ class Reserva extends CI_Controller{
            
         }
      }
+     
+     
      
      public function r(){
          $this->load->model('reserva_model');
