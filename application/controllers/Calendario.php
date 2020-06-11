@@ -12,7 +12,7 @@ class Calendario extends CI_Controller{
         $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
         $data ['idUsuario']=$uid;
         $data['reservas']=$this->calendario_model->getReservas();
-        frame($this,'calendario/rAll',$data);
+        frame($this,'calendario/r',$data);
     }
     
     
@@ -21,7 +21,7 @@ class Calendario extends CI_Controller{
         $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
         $data ['idUsuario']=$uid;
         $data['reservas']=$this->calendario_model->getReservasById($uid);
-        frame($this,'calendario/rUser',$data);
+        frame($this,'calendario/r',$data);
     }
     public function rAula(){
         $this->load->model('calendario_model');
@@ -29,7 +29,7 @@ class Calendario extends CI_Controller{
         $aulaId=isset($_POST['id']) ? $_POST['id'] : null;
         $data ['idUsuario']=$uid;
         $data['reservas']=$this->calendario_model->getReservasByAula($aulaId);
-        frame($this,'calendario/rUser',$data);
+        frame($this,'calendario/r',$data);
     }
   
 }

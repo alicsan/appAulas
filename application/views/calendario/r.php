@@ -17,7 +17,7 @@
 			   events:[
 					<?php foreach ($reservas as $reserva):?>
 				   {
-					   title:'<?=$reserva->aulas->pertenece->nombre?>',
+					   title:'<?=$reserva->aula->pertenece->nombre?>',
 					   start:'<?=$reserva->fecha_inicio?>',
 					   end:'<?=$reserva->fecha_fin?>'
 				   },
