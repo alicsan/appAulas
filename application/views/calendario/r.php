@@ -3,6 +3,7 @@
    	$(document).ready(function(){
    		var calendar=$('#calendar').fullCalendar({
    			editable:true,
+   		 	 selectable: true,
    			header:{
    				left:'prev,next today',
    				center:'title',
@@ -19,7 +20,8 @@
 				   {
 					   title:'<?=$reserva->aula->pertenece->nombre?>',
 					   start:'<?=$reserva->fecha_inicio?>',
-					   end:'<?=$reserva->fecha_fin?>'
+					   end:'<?=$reserva->fecha_fin?>',
+					   backgroundColor:'pink'
 				   },
 				   <?php endforeach;?>
 				   ]
@@ -32,7 +34,10 @@
        
       
         <div class="container content">
-        <div class="row">
+        <div class="divider"></div>
+             <div id="calendar"></div>
+             <div class="divider"></div>
+           <div class="row">
         <div class="col m12 separacion">
         
           <form action="<?=base_url()?>reserva/create" method="post" class="center">
@@ -45,7 +50,5 @@
      			
      	  </div>
       </div>
-      <div class="divider"></div>
-           <div id="calendar"></div>
        
         </div>

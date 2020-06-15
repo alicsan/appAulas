@@ -56,7 +56,7 @@ $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION[
 
 <div class="fixed-action-btn">
   <a class="btn-floating btn-large red">
-    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Perfil">person</i>
+    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Perfil">add</i>
   </a>
   <ul>
  

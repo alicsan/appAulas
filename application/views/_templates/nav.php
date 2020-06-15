@@ -6,28 +6,77 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 <nav class="nav   teal lighten-1" style="font-family: 'Sarala', sans-serif;">
 <div class="row">
   <div class="nav-wrapper">	
-  <div class="col">
-  <?php 
-  if($urol=="anon"){
-      echo "<a class=\"brand-logo\" href=".base_url()."><i class=\"material-icons large right\">home</i></a>";
-  }
-  if($urol=="user"){
-      echo " <a class=\"brand-logo\" href=".base_url()."hdu/user/homepage \"\><i class=\"material-icons large right\">home</i>Inicio</a>" ; 
-  }
-  if($urol=="admin"){
-      echo "<a class=\"brand-logo\" href=".base_url()."hdu/user/homepageAdmin \"\><i class=\"material-icons large right\">home</i>Inicio</a>" ;
-  }
-  ?>
-			  
+  <div class="col 6">
+   <?php if($urol=="anon"):?>
+ <a class="brand-logo" href="<?=base_url() ?> "><i class="material-icons large right">home</i>Inicio</a>
+  </div>	
+   </div>
+  </nav>
+<?php endif;?>
+		 <?php if($urol=="user"):?>
+		 <a class="brand-logo" href="<?=base_url() ?>hdu/user/homepage "><i class="material-icons large right">home</i>Inicio</a>
     </div>       
-       
- 			<button data-target="slide-out" class=" s4 m4 l4 xl4 right btn waves-light  sidenav-trigger"><i class="small material-icons">dehaze </i></button>
-		
-	
+ 		<div class="col6">
+							
+ 		</div>
+ 		
+   				
+   				
+   				<ul class="right hide-on-med-and-down">
+        <li>
+					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rUser" >
+					<i class="material-icons left">insert_invitation</i>TUS RESERVAS
+					</a>
+					
+					
+			 </li>
+        <li>
+					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rAll" >
+					<i class="material-icons left">insert_invitation</i>TODAS LAS RESERVAS
+					</a>
+					
+					
+			 </li>
+        <li>
+   		<button data-target="slide-out" class="waves-effect waves-light btn-floating btn-large sidenav-trigger right"><i class="material-icons">person</i></button> 	
+				</li>
+      </ul>
 	</div>	
    </div>
   </nav>
-
+<?php endif;?>
+<?php if($urol=="admin"):?>
+<a class="brand-logo" href="<?=base_url() ?>hdu/user/homepageAdmin "><i class="material-icons large right">home</i>Inicio</a>
+    </div>       
+ 		<div class="col6">
+							
+ 		</div>
+ 		
+   				
+   				
+   				<ul class="right hide-on-med-and-down">
+        <li>
+					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rUser" >
+					<i class="material-icons left">insert_invitation</i>TUS RESERVAS
+					</a>
+					
+					
+			 </li>
+        <li>
+					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rAll" >
+					<i class="material-icons left">insert_invitation</i>TODAS LAS RESERVAS
+					</a>
+					
+					
+			 </li>
+        <li>
+   		<button data-target="slide-out" class="waves-effect waves-light btn-floating btn-large sidenav-trigger right"><i class="material-icons">person</i></button> 	
+				</li>
+      </ul>
+	</div>	
+   </div>
+  </nav>
+<?php endif;?>
 <!-- -----------------------------------------------SIDENAV------------------------------------------- -->
  
 <?php if($urol=="user"):?>
