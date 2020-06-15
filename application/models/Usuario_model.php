@@ -64,8 +64,9 @@ class Usuario_model extends CI_Model{
             $e = ($idDepar == null ? new Exception("nulo") : new Exception("duplicado"));
             throw  $e;
         }
+        }
         
-    }
+        
     
     public function verificarRol($uid){
         $usuario=R::load('usuario',$uid);

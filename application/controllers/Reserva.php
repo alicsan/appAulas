@@ -61,7 +61,7 @@ class Reserva extends CI_Controller{
                     $e = ($libre==false?new Exception("Este aula ya ha sido reservado en la fecha elegida"):new Exception("Reserva duplicada"));
                     session_start();
                     $_SESSION['_msg']=[];
-                    $_SESSION['_msg']['texto']=$e;
+                    $_SESSION['_msg']['texto']="Este aula ya ha sido reservado en la fecha elegida";
                     $_SESSION['_msg']['uri']='reserva/c';
                     redirect(base_url().'msg');
            

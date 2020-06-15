@@ -1,6 +1,6 @@
 <?php 
-    $usuario=isset($_SESSION['usuario']) ? $_SESSION['usuario'] : $_SESSION['usuario']="anon";
-       $uid=$usuario->id;
+
+$uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
 ?>
 <div class="container content">
 
@@ -38,7 +38,7 @@
 			</form>  
 	      </div>
       <div id="test2">
-      	<form action="#"  method="post">
+      	<form action="<?= base_url()?>material/c"  method="post">
 		  <button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Reservar Material
 				</button>
@@ -47,7 +47,7 @@
 	   </div>
     </div>
   </div>
-
+<!--  -------------------------------OPCIONES DE USUARIO, CERRAR SESIÓN Y EDITAR PERFIL -->
  <div class="fixed-action-btn">
   <a class="btn-floating btn-large red">
     <i class="large material-icons tooltipped" data-position="left" data-tooltip="Perfil">person</i>

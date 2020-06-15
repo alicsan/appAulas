@@ -1,11 +1,9 @@
 <?php 
-//session_start();
-    $usuario=isset($_SESSION['usuario']) ? $_SESSION['usuario'] : $_SESSION['usuario']="anon";
-       $uid=$usuario->id;
+$uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
 ?>
 <div class="container content">
 
-<?php if($usuario->rol=="user"):?>
+
 	<div class="row">
 		<h4 class="center">Área Personal</h4>
 	</div>
@@ -48,16 +46,13 @@
     </div>
   </div>
 
-<!-- ------------------------------------------------- CALENDARIO -------------------------------------------------------------- -->
-
-
- 
+<!--  -------------------------------OPCIONES DE USUARIO, CERRAR SESIÓN Y EDITAR PERFIL -->
 
 
  <div class="divider"></div>
  
 
-<?php endif;?>
+
 
 <div class="fixed-action-btn">
   <a class="btn-floating btn-large red">
@@ -85,4 +80,9 @@
   
   </ul>
 </div>
+
+
+
+		
+
 </div>

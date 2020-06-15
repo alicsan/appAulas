@@ -42,9 +42,10 @@ class Anonymous_model extends CI_Model{
         
     }
     
+   
     public function verificarLogin($username,$pwd){
         $usuario=R::findOne('usuario','username=?',[$username]);
-       
+        
         if($usuario==null){
             throw new Exception ("Usuario inexistente");
             $_SESSION['rol']='anon';
@@ -54,13 +55,13 @@ class Anonymous_model extends CI_Model{
                 $_SESSION['rol']='anon';
             }else{
                 session_start();
-                $_SESSION['usuario']=$usuario;
+                $_SESSION['_user']['_uid']=$usuario->id;
+                $_SESSION['_user']['_un']=$usuario->nombre;
                 $_SESSION['rol']=$usuario->rol;
                 return $usuario;
             }
         }
     }
-    
     
     
     

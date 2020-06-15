@@ -102,6 +102,10 @@ class Usuario extends CI_Controller{
             }
         }
        
+ 
+        
+        
+        
         public function changepwd(){
             $this->load->model('usuario_model');
             $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
@@ -139,6 +143,8 @@ class Usuario extends CI_Controller{
                 redirect(base_url() . 'msg');
             }
         }
+        
+       
 }
 
 ?>

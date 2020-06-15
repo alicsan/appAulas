@@ -1,23 +1,20 @@
 <?php 
-$user=isset($_SESSION['usuario']) ? $_SESSION['usuario'] : $_SESSION['usuario']="anon";
-// $uid=$user->id;
-
-$usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
-
-
+$nombre=isset($_SESSION['_user']['_un']) ? $_SESSION['_user']['_un'] : "non";
+$uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
+$urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 ?>
 <nav class="nav   teal lighten-1" style="font-family: 'Sarala', sans-serif;">
 <div class="row">
   <div class="nav-wrapper">	
   <div class="col">
   <?php 
-  if($usuario=="anon"){
+  if($urol=="anon"){
       echo "<a class=\"brand-logo\" href=".base_url()."><i class=\"material-icons large right\">home</i></a>";
   }
-  if($usuario=="user"){
+  if($urol=="user"){
       echo " <a class=\"brand-logo\" href=".base_url()."hdu/user/homepage \"\><i class=\"material-icons large right\">home</i>Inicio</a>" ; 
   }
-  if($usuario=="admin"){
+  if($urol=="admin"){
       echo "<a class=\"brand-logo\" href=".base_url()."hdu/user/homepageAdmin \"\><i class=\"material-icons large right\">home</i>Inicio</a>" ;
   }
   ?>
@@ -33,12 +30,12 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 
 <!-- -----------------------------------------------SIDENAV------------------------------------------- -->
  
-<?php if($usuario=="user"):?>
+<?php if($urol=="user"):?>
 <ul id="slide-out" class="sidenav grey darken-4" style="font-family: 'Sarala', sans-serif;">
     <li>
     <div class="user-view">
   
-      <p class="white-text"><i><?= $user->nombre?></i></p>
+      <p class="white-text"><i><?= $nombre?></i></p>
      <ul class="collapsible">
 
       <div class="subheader"></div>
@@ -50,7 +47,7 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 								<ul>
 									
  									<li><form action="<?= base_url()?>usuario/changepwd" method="post">
-											<input type="hidden" name="uid" value="<?=$user->id?>">
+											<input type="hidden" name="uid" value="<?=$uid?>">
 													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
 														Cambiar contraseña
 													</button>
@@ -67,7 +64,7 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				<div class="divider"></div>
    				<li>
    				<form action="<?= base_url()?>aula/r" method="post">
-				<input type="hidden" name="uid" value="<?=$user->id?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Listado de Aulas
 				</button>
@@ -77,7 +74,7 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				<!-- TUS RESERVAS   -->
    				<li>
    					<form action="<?=base_url()?>calendario/rUser" method="post">
-					<input type="hidden" name="uid" value="<?=$user->id?>">
+					<input type="hidden" name="uid" value="<?=$uid?>">
 					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large right">insert_invitation</i>TUS RESERVAS
 					</button>
@@ -88,7 +85,7 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				 <!-- TODAS LAS RESERVAS   -->
    				<li>
    					<form action="<?=base_url()?>calendario/rAll" method="post">
-					<input type="hidden" name="uid" value="<?=$user->id?>">
+					<input type="hidden" name="uid" value="<?=$uid?>">
 					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large right">insert_invitation</i>TODAS LAS RESERVAS	
 					</button>
@@ -103,13 +100,13 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
  </ul> 
  <?php endif;?>
   
-  <?php if($usuario=="admin"):?>
+  <?php if($urol=="admin"):?>
   
   <ul id="slide-out" class="sidenav grey darken-4" style="font-family: 'Sarala', sans-serif;">
     <li>
     <div class="user-view">
   
-      <p class="white-text"><i><?= $user->nombre?> <?= $user->id?></i></p>
+      <p class="white-text"><i><?= $nombre?> <?= $uid?></i></p>
      <ul class="collapsible">
 
       <div class="subheader"></div>
@@ -121,13 +118,19 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 								<ul>
 									<li>
 										<form action="<?= base_url()?>usuario/changepwd" method="post">
-											  <input type="hidden" name="uid" value="<?=$user->id?>">
+											  <input type="hidden" name="uid" value="<?=$uid?>">
 													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
 														Cambiar contraseña
 													</button>
 									</li>
  									
- 									<li><a class="waves-effect waves-light btn hoverable" href="<?=base_url()?>usuario/registrar">Registrar Usuario</a></li> 
+ 									<li><a class="waves-effect waves-light btn hoverable" href="<?=base_url()?>usuario/registrar">Registrar Usuario</a>
+ 										<form action="<?=base_url()?>usuario/registrar" method="post">
+											  <input type="hidden" name="uid" value="<?=$uid?>">
+													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
+														Cambiar contraseña
+													</button>
+ 									</li> 
 								</ul>
    					 </div>
    				</li>
@@ -189,7 +192,7 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				<div class="divider"></div>
    				<li>
    				<form action="<?= base_url()?>aula/r" method="post">
-				<input type="hidden" name="uid" value="<?=$user->id?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Listado de Aulas
 				</button>
@@ -199,7 +202,7 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				<!-- TUS RESERVAS   -->
    				<li>
    					<form action="<?=base_url()?>calendario/rUser" method="post">
-					<input type="hidden" name="uid" value="<?=$user->id?>">
+					<input type="hidden" name="uid" value="<?=$uid?>">
 					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large right">insert_invitation</i>TUS RESERVAS
 					</button>
@@ -210,7 +213,7 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				 <!-- TODAS LAS RESERVAS   -->
    				<li>
    					<form action="<?=base_url()?>calendario/rAll" method="post">
-					<input type="hidden" name="uid" value="<?=$user->id?>">
+					<input type="hidden" name="uid" value="<?=$uid?>">
 					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					<i class="material-icons large right">insert_invitation</i>TODAS LAS RESERVAS	
 					</button>
