@@ -58,4 +58,31 @@
  
 
 <?php endif;?>
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Perfil">person</i>
+  </a>
+  <ul>
+ 
+    <li>
+    <form action="<?= base_url()?>usuario/u" method="post">
+				<input type="hidden" name="uid" value="<?=$uid?>">
+				<button onclick="submit()" class="btn-floating yellow darken-1">
+					<i class="material-icons tooltipped" data-position="left" data-tooltip="Editar perfil">mode_edit</i></a>
+				</button>
+			</form>
+    </li>
+    
+    <li>
+     <form action="<?=base_url()?>hdu/anonymous/logout" method="post">
+				<input type="hidden" name="uid" value="<?=$uid?>">
+				<button onclick="submit()" class="btn-floating green">
+					<i class="material-icons tooltipped" data-position="left" data-tooltip="Cerrar sesión">exit_to_app</i></a>
+				</button>
+			</form>
+    </li>
+  
+  </ul>
+</div>
 </div>

@@ -24,38 +24,49 @@ class Reserva extends CI_Controller{
     }
     
     public function cPost(){
-        $user=isset($_POST['uid']) ? $_POST['uid'] : null;
+        $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
         $aula= isset($_POST['idAula']) ? $_POST['idAula'] : null;
-        $fechaInicio=isset($_POST['fechaInicio']) ? $_POST['fechaInicio'] : null;
-        $fechaFin=isset($_POST['fechaFin']) ? $_POST['fechaFin'] : null;
+        $this->load->model('usuario_model');
+        $user=$this->usuario_model->getUserById($uid);
+        
+        $dia=isset($_POST['dia']) ? $_POST['dia'] : null;
+        $horaInicio=isset($_POST['horaInicio']) ? $_POST['horaInicio'] : null;
+        $horaFin= isset($_POST['horaFin' ]) ? $_POST['horaFin' ] : null;
+        
+        
+        $fechaInicio=$dia." ".$horaInicio;
+        $fechaFin=$dia." ".$horaFin;
+        
         $this->load->model('reserva_model');
         $libre=$this->reserva_model->verificarReserva($aula,$fechaInicio);
-            if($libre){
-        try{
-           
-           $this->reserva_model->registrarReserva($user,$aula,$fechaInicio,$fechaFin);
-            redirect(base_url().'/reserva/r');
+      if($libre){
+                 try{
+                   $this->reserva_model->registrarReserva($uid,$aula,$fechaInicio,$fechaFin);
+                   session_start();
+                   $_SESSION['_msg']=[];
+                   $_SESSION['_msg']['texto']='Reserva realizada con éxito.';
+                   if($user->rol=="admin"){$_SESSION['_msg']['uri']='hdu/user/homepageAdmin';}
+                   else{$_SESSION['_msg']['uri']='hdu/user/homepageAdmin';}
+                   redirect(base_url().'msg');
             
-        }catch(Exception $e){
-            session_start();
-            $_SESSION['_msg']=[];
-            $_SESSION['_msg']['texto']=$e->getMessage();
-            $_SESSION['_msg']['uri']='/';
-            redirect(base_url().'msg');
+              }catch(Exception $e){
+                        session_start();
+                        $_SESSION['_msg']=[];
+                        $_SESSION['_msg']['texto']=$e->getMessage();
+                        if($user->rol=="admin"){$_SESSION['_msg']['uri']='hdu/user/homepageAdmin';}
+                        else{$_SESSION['_msg']['uri']='hdu/user/homepageAdmin';}
+                        redirect(base_url().'msg');
         }
         }else{
-            
-                $e = ($libre==false?new Exception("Este aula ya ha sido reservado en la fecha elegida"):new Exception("Reserva duplicada"));
-                session_start();
-                $_SESSION['_msg']=[];
-                $_SESSION['_msg']['texto']=$e;
-                $_SESSION['_msg']['uri']='reserva/c';
-                redirect(base_url().'msg');
+                    $e = ($libre==false?new Exception("Este aula ya ha sido reservado en la fecha elegida"):new Exception("Reserva duplicada"));
+                    session_start();
+                    $_SESSION['_msg']=[];
+                    $_SESSION['_msg']['texto']=$e;
+                    $_SESSION['_msg']['uri']='reserva/c';
+                    redirect(base_url().'msg');
            
         }
      }
-     
-     
      
      public function r(){
          $this->load->model('reserva_model');

@@ -1,11 +1,11 @@
 <?php 
 class Reserva_model extends CI_Model{
     
-    public function registrarReserva($idProfesor,$idAula,$fechaInicio,$fechaFin){
+    public function registrarReserva($user,$idAula,$fechaInicio,$fechaFin){
                
       
             $reserva=R::dispense('reserva');
-            $usuario=R::load('usuario',$idProfesor);
+            $usuario=R::load('usuario',$user);
             $aula=R::load('aula',$idAula);
                     
             $reserva->usuario=$usuario;

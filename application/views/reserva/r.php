@@ -22,16 +22,12 @@
 <div class="divider"></div>
 
 <div class="row">
-		<div class="col m6">
+		<div class="col m12">
 			<div class="center">
 				<a href="<?=base_url()?>reserva/c" class="btn waves-effect waves-light btn light-green lighten-1" style="margin-top:25px;">Nueva Reserva</a>
   			</div>
   		</div>	
-  		<div class="col m6">
-			<div class="center">
-				<a href="<?=base_url()?>hdu/user/homepage" class="btn waves-effect waves-light btn light-green lighten-1" style="margin-top:25px;">Home</a>
-  			</div>
-  		</div>	
+  		
   	</div>
 
 

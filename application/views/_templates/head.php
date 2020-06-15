@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/estilos.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/jquery.datetimepicker.css">
+	<link href="https://fonts.googleapis.com/css2?family=Sarala&display=swap" rel="stylesheet">
 	 <script src="<?=base_url()?>assets/js/jquery-3.5.1.min.js" ></script> 
 	<script src="<?=base_url()?>assets/js/jquery.datetimepicker.full.min.js" ></script>	
 	<script src="<?=base_url()?>assets/js/bootstrap.min.js"></script>

@@ -74,8 +74,8 @@ class Usuario extends CI_Controller{
         public function u(){
             $this->load->model('departamento_model');
             $this->load->model('usuario_model');
-            $id = isset($_POST['id'])?$_POST['id']:null;
-            $data['usuario']=$this->usuario_model->getUsuario($id);
+            $id = isset($_POST['uid']) ? $_POST['uid'] : null;
+            $data['usuario']=$this->usuario_model->getUserById($id);
             $data['departamentos']=$this->departamento_model->getDepartamentos();
             frame($this,'usuario/u',$data);
         }
@@ -86,7 +86,7 @@ class Usuario extends CI_Controller{
             $id = isset($_POST['id']) ? $_POST['id'] : null;
             $username= isset($_POST['username']) ? $_POST['username'] : null;
             $idDepar = isset($_POST['idDepar']) ? $_POST['idDepar'] : null;
-           
+            $user=$this->usuario_model->getUserById($id);
             
             try {
                 $this->usuario_model->updateUsuario($id,$username,$idDepar);
@@ -95,11 +95,50 @@ class Usuario extends CI_Controller{
             catch (Exception $e) {
                 session_start();
                 $_SESSION['_msg']['texto']=$e->getMessage();
-                $_SESSION['_msg']['uri']='persona/c';
+                if($user->rol=="admin"){$_SESSION['_msg']['uri']='hdu/user/homepageAdmin';}
+                else{$_SESSION['_msg']['uri']='hdu/user/homepageAdmin';}
+                
                 redirect(base_url() . 'msg');
             }
         }
        
+        public function changepwd(){
+            $this->load->model('usuario_model');
+            $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
+            $data['uid']=$uid;
+            frame($this,'usuario/changepwd',$data);
+        }
+        
+        public function changepwdPost(){
+            $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
+            $oldpwd=isset($_POST['oldpwd']) ? $_POST['oldpwd'] : null;
+            $newpwd= isset($_POST['newpwd']) ? $_POST['newpwd'] : null;
+            $this->load->model('usuario_model');
+            $user=$this->usuario_model->getUserById($uid);
+            try{
+                $this->usuario_model->changepwd($uid,$oldpwd,$newpwd);
+                session_start();
+                $_SESSION['_msg']['texto']='Contraseña actualizada.';
+                if($user->rol=="admin"){
+                    $_SESSION['_msg']['uri']='hdu/user/homepageAdmin';
+                   
+                }
+                else{
+                    $_SESSION['_msg']['uri']='hdu/user/homepage';
+                }
+                redirect(base_url() . 'msg');
+            }catch (Exception $e) {
+                session_start();
+                $_SESSION['_msg']['texto']=$e->getMessage();
+                if($user->rol=="admin"){
+                    $_SESSION['_msg']['uri']='hdu/user/homepageAdmin';
+                         }
+                else{
+                    $_SESSION['_msg']['uri']='hdu/user/homepage';
+                }
+                redirect(base_url() . 'msg');
+            }
+        }
 }
 
 ?>

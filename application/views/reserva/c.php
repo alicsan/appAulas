@@ -6,20 +6,25 @@
 	<form action="<?= base_url()?>reserva/cPost" method="post">
 		<input type="hidden" value="<?=$usuario->id?>"  name="uid" id="uid">
 			
-		<div class="row">
-			<div class="input-field col s6">		
-				<label for="fechaInicio">Inicio de reserva</label>
-            	<input type='text' class="form-control" id="picker1" name="fechaInicio"/>
+		
+			<div class="input-field col s12">		
+				<label for="dia">Día</label>
+            	<input type='text' class="form-control" id="picker1" name="dia"/>
     		</div>
-
+	<div class="row">
    			 <div class='input-field col s6'>
-       		  <label for="fechaFin">Fin de reserva</label>
-              <input type='text' class="form-control" id="picker2" name="fechaFin">
+       		  <label for="horaInicio">Desde</label>
+              <input type='text' class="form-control" id="picker2" name="horaInicio">
+           </div>
+           
+            <div class='input-field col s6'>
+       		  <label for="horaFin">Hasta</label>
+              <input type='text' class="form-control" id="picker3" name="horaFin">
            </div>
      </div>
 			
 	<div class="col s12">
-	  <select name="idAula" class="browser-default">
+	  <select name="idAula">
 	  <option value="" disabled selected>Elige un aula</option>
 	 	<?php foreach($aulas as $aula):?>
 	 		<option value="<?=$aula->id?>"><?=$aula->pertenece->nombre?> <?=$aula->nombre?></option>
@@ -41,9 +46,17 @@
 </div>
    <script> 
      	$('#picker1').datetimepicker({
-				timepicker: true,
+				timepicker: false,
 				datepicker:true,
-				format:'Y-m-d H:i',
+				format:'Y-m-d',
+				yearStart:2020,
+				yearEnd:2021
+					
+         	})
+         	$('#picker2').datetimepicker({
+				timepicker: true,
+				datepicker:false,
+				format:'H:i',
 				hours12:false,
 				allowTimes:[
 					'08:20','09:15','10:10','11:05','11:35',
@@ -52,10 +65,10 @@
 				yearEnd:2021
 					
          	})
-         	$('#picker2').datetimepicker({
+         	$('#picker3').datetimepicker({
 				timepicker: true,
-				datepicker:true,
-				format:'Y-m-d H:i',
+				datepicker:false,
+				format:'H:i',
 				hours12:false,
 				allowTimes:[
 					'08:20','09:15','10:10','11:05','11:35',

@@ -32,7 +32,20 @@
        
       
         <div class="container content">
-          
+        <div class="row">
+        <div class="col m12 separacion">
+        
+          <form action="<?=base_url()?>reserva/create" method="post" class="center">
+      			<input type="hidden" value="<?=$reserva->aula->id?>" name="id">
+      				<input type="hidden" value="<?=$idUsuario?>" name="idUser">
+     			 <button onclick="submit()" class="btn waves-effect waves-light light-green lighten-1">
+						RESERVAR ESTE AULA
+					</button>
+     			 </form>
+     			
+     	  </div>
+      </div>
+      <div class="divider"></div>
            <div id="calendar"></div>
        
         </div>

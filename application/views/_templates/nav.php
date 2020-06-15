@@ -6,9 +6,10 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 
 
 ?>
-<nav class="nav   teal lighten-1">
+<nav class="nav   teal lighten-1" style="font-family: 'Sarala', sans-serif;">
 <div class="row">
-  <div class="nav-wrapper">		
+  <div class="nav-wrapper">	
+  <div class="col">
   <?php 
   if($usuario=="anon"){
       echo "<a class=\"brand-logo\" href=".base_url()."><i class=\"material-icons large right\">home</i></a>";
@@ -21,25 +22,19 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
   }
   ?>
 			  
-    </div> 
- 	<ul  class="right hide-on-med-and-down">
-        <?php if($usuario!="anon"):?>
-        <li><a class="waves-effect waves-light hoverable btn light-green lighten-1" href="<?=base_url()?>hdu/anonymous/logout">
-        <i class="material-icons large right">exit_to_app</i>Cerrar Sesión</a></li>
-        <?php endif;?>
-        </ul>
-        <ul class="s4 m4 l4 xl4 right">
- 		<li>
- 			<button data-target="slide-out" class="btn waves-light  sidenav-trigger"><i class="small material-icons">dehaze </i></button>
-		</li>
-	</ul>
+    </div>       
+       
+ 			<button data-target="slide-out" class=" s4 m4 l4 xl4 right btn waves-light  sidenav-trigger"><i class="small material-icons">dehaze </i></button>
+		
+	
+	</div>	
    </div>
   </nav>
 
 <!-- -----------------------------------------------SIDENAV------------------------------------------- -->
  
 <?php if($usuario=="user"):?>
-<ul id="slide-out" class="sidenav grey darken-4">
+<ul id="slide-out" class="sidenav grey darken-4" style="font-family: 'Sarala', sans-serif;">
     <li>
     <div class="user-view">
   
@@ -53,9 +48,14 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
  							</div> 
 							<div class="collapsible-body grey darken-4"> 
 								<ul>
-									<li><a class="waves-effect waves-light btn hoverable" href="<?=base_url()?>hdu/anonymous/logout">Cerrar Sesión</a></li>
- 									<li><a class="waves-effect waves-light btn hoverable" href="#">Editar perfil</a></li> 
- 									<li><a class="waves-effect waves-light btn hoverable" href="#">Cambiar Contraseña</a></li>
+									
+ 									<li><form action="<?= base_url()?>usuario/changepwd" method="post">
+											<input type="hidden" name="uid" value="<?=$user->id?>">
+													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
+														Cambiar contraseña
+													</button>
+											</form>
+									</li>
  								 
 								</ul>
    					 </div>
@@ -105,11 +105,11 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
   
   <?php if($usuario=="admin"):?>
   
-  <ul id="slide-out" class="sidenav grey darken-4">
+  <ul id="slide-out" class="sidenav grey darken-4" style="font-family: 'Sarala', sans-serif;">
     <li>
     <div class="user-view">
   
-      <p class="white-text"><i><?= $user->nombre?></i></p>
+      <p class="white-text"><i><?= $user->nombre?> <?= $user->id?></i></p>
      <ul class="collapsible">
 
       <div class="subheader"></div>
@@ -119,9 +119,14 @@ $usuario=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
  							</div> 
 							<div class="collapsible-body grey darken-4"> 
 								<ul>
-									<li><a class="waves-effect waves-light btn hoverable" href="<?=base_url()?>hdu/anonymous/logout">Cerrar Sesión</a></li>
- 									<li><a class="waves-effect waves-light btn hoverable" href="#">Editar perfil</a></li> 
- 									<li><a class="waves-effect waves-light btn hoverable" href="#">Cambiar Contraseña</a></li>
+									<li>
+										<form action="<?= base_url()?>usuario/changepwd" method="post">
+											  <input type="hidden" name="uid" value="<?=$user->id?>">
+													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
+														Cambiar contraseña
+													</button>
+									</li>
+ 									
  									<li><a class="waves-effect waves-light btn hoverable" href="<?=base_url()?>usuario/registrar">Registrar Usuario</a></li> 
 								</ul>
    					 </div>

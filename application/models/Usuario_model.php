@@ -76,6 +76,18 @@ class Usuario_model extends CI_Model{
         }
     }
     
+    public function changepwd($uid,$oldpwd,$newpwd){
+        $usuario=R::load('usuario',$uid);
+        $op=password_hash($oldpwd, PASSWORD_DEFAULT);
+        $ac=$usuario->password;
+        if(password_verify($oldpwd,$ac)){
+            $usuario->password=password_hash($newpwd, PASSWORD_DEFAULT);
+            R::store($usuario);
+        }else{
+            $e= new Exception("La contraseña introducida no es correcta");
+            throw $e;
+        }
+    }
 
 }
 

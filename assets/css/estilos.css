@@ -5,6 +5,7 @@ body{
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: 'Sarala', sans-serif !important;
   }
 
  .content{
@@ -16,3 +17,10 @@ body{
 	margin-top:100px;
 }
 
+.btn{
+	font-family: 'Sarala', sans-serif !important;
+}
+
+.separacion{
+	padding: 10px !important; 
+}
