@@ -1,3 +1,4 @@
+  <?php $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;?>
    <script>
    //var events=json_encode();
    	$(document).ready(function(){
@@ -21,7 +22,7 @@
 					   title:'<?=$reserva->aula->pertenece->nombre?>',
 					   start:'<?=$reserva->fecha_inicio?>',
 					   end:'<?=$reserva->fecha_fin?>',
-					   backgroundColor:'pink'
+					   backgroundColor:'black'
 				   },
 				   <?php endforeach;?>
 				   ]
@@ -40,11 +41,11 @@
            <div class="row">
         <div class="col m12 separacion">
         
-          <form action="<?=base_url()?>reserva/create" method="post" class="center">
-      			<input type="hidden" value="<?=$reserva->aula->id?>" name="id">
-      				<input type="hidden" value="<?=$idUsuario?>" name="idUser">
+          <form action="<?=base_url()?>reserva/c" method="post" class="center">
+      			
+      				<input type="hidden" value="<?=$uid?>" name="uid">
      			 <button onclick="submit()" class="btn waves-effect waves-light light-green lighten-1">
-						RESERVAR ESTE AULA
+						RESERVAR AULA
 					</button>
      			 </form>
      			

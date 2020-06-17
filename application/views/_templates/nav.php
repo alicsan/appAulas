@@ -2,6 +2,7 @@
 $nombre=isset($_SESSION['_user']['_un']) ? $_SESSION['_user']['_un'] : "non";
 $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
 $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
+//echo var_dump($uid);
 ?>
 <nav class="nav   teal lighten-1" style="font-family: 'Sarala', sans-serif;">
 <div class="row">
@@ -24,14 +25,14 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				
    				<ul class="right hide-on-med-and-down">
         <li>
-					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rUser" >
+					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rUser" >
 					<i class="material-icons left">insert_invitation</i>TUS RESERVAS
 					</a>
 					
 					
 			 </li>
         <li>
-					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rAll" >
+					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rAll" >
 					<i class="material-icons left">insert_invitation</i>TODAS LAS RESERVAS
 					</a>
 					
@@ -56,14 +57,14 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    				
    				<ul class="right hide-on-med-and-down">
         <li>
-					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rUser" >
+					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rUser" >
 					<i class="material-icons left">insert_invitation</i>TUS RESERVAS
 					</a>
 					
 					
 			 </li>
         <li>
-					<a  class="waves-effect waves-light btn" href="<?=base_url()?>calendario/rAll" >
+					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rAll" >
 					<i class="material-icons left">insert_invitation</i>TODAS LAS RESERVAS
 					</a>
 					
@@ -119,27 +120,8 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 				</button>
 			</form>
 			
-   				<li><div class="divider"></div></li>
-   				<!-- TUS RESERVAS   -->
-   				<li>
-   					<form action="<?=base_url()?>calendario/rUser" method="post">
-					<input type="hidden" name="uid" value="<?=$uid?>">
-					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
-					<i class="material-icons large right">insert_invitation</i>TUS RESERVAS
-					</button>
-					</form> 
-				</li>
    				
-   				 <li><div class="divider"></div></li>
-   				 <!-- TODAS LAS RESERVAS   -->
-   				<li>
-   					<form action="<?=base_url()?>calendario/rAll" method="post">
-					<input type="hidden" name="uid" value="<?=$uid?>">
-					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
-					<i class="material-icons large right">insert_invitation</i>TODAS LAS RESERVAS	
-					</button>
-			</form> 
-   				</li>
+   				
    				<li><div class="divider"></div></li>
    				
    				 
@@ -155,7 +137,7 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
     <li>
     <div class="user-view">
   
-      <p class="white-text"><i><?= $nombre?> <?= $uid?></i></p>
+      <p class="white-text"><i><?= $nombre?></i></p>
      <ul class="collapsible">
 
       <div class="subheader"></div>
@@ -171,14 +153,15 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
 														Cambiar contraseña
 													</button>
-									</li>
- 									
- 									<li><a class="waves-effect waves-light btn hoverable" href="<?=base_url()?>usuario/registrar">Registrar Usuario</a>
- 										<form action="<?=base_url()?>usuario/registrar" method="post">
+													</form>
+									</li>				
+ 										
+ 										
+ 										<li><form action="<?=base_url()?>usuario/registrar" method="post">
 											  <input type="hidden" name="uid" value="<?=$uid?>">
 													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
-														Cambiar contraseña
-													</button>
+														Registrar usuario
+													</button></form>
  									</li> 
 								</ul>
    					 </div>
@@ -246,28 +229,7 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 					Listado de Aulas
 				</button>
 			</form>
-			
-   				<li><div class="divider"></div></li>
-   				<!-- TUS RESERVAS   -->
-   				<li>
-   					<form action="<?=base_url()?>calendario/rUser" method="post">
-					<input type="hidden" name="uid" value="<?=$uid?>">
-					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
-					<i class="material-icons large right">insert_invitation</i>TUS RESERVAS
-					</button>
-					</form> 
-				</li>
-   				
-   				 <li><div class="divider"></div></li>
-   				 <!-- TODAS LAS RESERVAS   -->
-   				<li>
-   					<form action="<?=base_url()?>calendario/rAll" method="post">
-					<input type="hidden" name="uid" value="<?=$uid?>">
-					<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
-					<i class="material-icons large right">insert_invitation</i>TODAS LAS RESERVAS	
-					</button>
-			</form> 
-   				</li>
+							
    				<li><div class="divider"></div></li>
    				
    				 

@@ -9,11 +9,15 @@ class Anonymous_model extends CI_Model{
         R::store($cA1);
         
         $cA2=R::dispense('categoriaaula');
-        $cA2->nombre='Taller';
+        $cA2->nombre='Informática';
         R::store($cA2);
         
         $cA3=R::dispense('categoriaaula');
         $cA3->nombre='Polivalente';
+        R::store($cA3);
+        
+        $cA4=R::dispense('categoriaaula');
+        $cA4->nombre='Tecnología';
         R::store($cA3);
         
         $depar=R::dispense('departamento');

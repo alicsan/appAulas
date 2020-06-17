@@ -29,7 +29,7 @@ $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION[
     <div class="card-content grey lighten-4 center">
       <div id="test1">
     		<form action="<?= base_url()?>reserva/c" method="post">
-				<input type="hidden" name="id" value="<?=$uid?>">
+				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Reservar Aula
 				</button>
