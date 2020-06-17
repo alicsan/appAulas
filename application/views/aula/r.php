@@ -57,7 +57,7 @@
 <?php if($urol=='admin'):?>
 <div class="fixed-action-btn">
   <a class="btn-floating btn-large red" href="<?=base_url()?>aula/c">
-    <i class="large material-icons tooltipped" data-position="top" data-tooltip="Añadir Aula">add</i>
+    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Añadir Aula">add</i>
   </a>
 </div>
 <?php endif;?>

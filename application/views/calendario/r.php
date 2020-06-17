@@ -35,10 +35,10 @@
        
       
         <div class="container content">
-        <div class="divider"></div>
-             <div id="calendar"></div>
-             <div class="divider"></div>
-           <div class="row">
+        
+             <div id="calendar" style="margin:50px;"></div>
+          
+           <div class="row" style="margin:20px;">
         <div class="col m12 separacion">
         
           <form action="<?=base_url()?>reserva/c" method="post" class="center">
