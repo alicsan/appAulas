@@ -9,18 +9,14 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
   <div class="nav-wrapper">	
   <div class="col 6">
    <?php if($urol=="anon"):?>
- <a class="brand-logo" href="<?=base_url() ?> "><i class="material-icons large right">home</i>Inicio</a>
+ <a class="brand-logo" href="<?=base_url() ?> "></a>
   </div>	
    </div>
   </nav>
 <?php endif;?>
 		 <?php if($urol=="user"):?>
-		 <a class="brand-logo" href="<?=base_url() ?>hdu/user/homepage "><i class="material-icons large right">home</i>Inicio</a>
+		 <a class="brand-logo" href="<?=base_url() ?>hdu/user/homepage"><i class="material-icons large right">home</i>Inicio</a>
     </div>       
- 		<div class="col6">
-							
- 		</div>
- 		
    				
    				
    				<ul class="right hide-on-med-and-down">
@@ -39,7 +35,7 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 					
 			 </li>
         <li>
-   		<button data-target="slide-out" class="waves-effect waves-light btn-floating btn-large sidenav-trigger right"><i class="material-icons">person</i></button> 	
+   		 	<button data-target="slide-out" class="waves-effect waves-light btn-floating btn-large sidenav-trigger right"><i class="material-icons">person</i></button>
 				</li>
       </ul>
 	</div>	
@@ -49,36 +45,40 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 <?php if($urol=="admin"):?>
 <a class="brand-logo" href="<?=base_url() ?>hdu/user/homepageAdmin "><i class="material-icons large right">home</i>Inicio</a>
     </div>       
- 		<div class="col6">
-							
- 		</div>
- 		
-   				
-   				
+ 		   				
    				<ul class="right hide-on-med-and-down">
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-trigger" href="#!" data-target="desplegable1">TUS RESERVAS<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="dropdown-trigger" href="#!" data-target="desplegable2">TODAS LAS RESERVAS<i class="material-icons right">arrow_drop_down</i></a></li>
+    
         <li>
-					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rUser" >
-					<i class="material-icons left">insert_invitation</i>TUS RESERVAS
-					</a>
-					
-					
-			 </li>
-        <li>
-					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rAll" >
-					<i class="material-icons left">insert_invitation</i>TODAS LAS RESERVAS
-					</a>
-					
-					
-			 </li>
-        <li>
-   		<button data-target="slide-out" class="waves-effect waves-light btn-floating btn-large sidenav-trigger right"><i class="material-icons">person</i></button> 	
+   		 	<button data-target="slide-out" class="waves-effect waves-light btn-floating btn-large sidenav-trigger"><i class="material-icons">person</i></button>
 				</li>
       </ul>
 	</div>	
    </div>
   </nav>
 <?php endif;?>
-<!-- -----------------------------------------------SIDENAV------------------------------------------- -->
+
+<!-- --------------------------------------DESPLEGABLES NAV ------------------------------------------ -->
+
+        <ul id="desplegable1" class="dropdown-content">
+          <li><a href="#!">MATERIALES</a></li>
+          <li class="divider"></li>
+          <li><a href="<?=base_url()?>calendario/rUser">AULAS</a></li>
+          
+         
+        </ul>
+        
+        <ul id="desplegable2" class="dropdown-content">
+          <li><a href="#!">MATERIALES</a></li>
+          <li><a href="<?=base_url()?>calendario/rAll">AULAS</a></li>
+         
+        </ul>
+
+
+
+<!-- --------------------------------------BARRA DE NAVEGACIÓN LATERAL IZQ------------------------------------------ -->
  
 <?php if($urol=="user"):?>
 <ul id="slide-out" class="sidenav grey darken-4" style="font-family: 'Sarala', sans-serif;">

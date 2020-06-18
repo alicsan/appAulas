@@ -1,29 +1,36 @@
 <div class="container content">
 	<div class="row">
- 	 	<h4 class="center">Reservar aula: <?=$aula->nombre?></h4>
+ 	 	<h4 class="center">Reservar Material <?=$usuario->nombre?></h4>
 	</div>
  <div class="row">
-	<form action="<?= base_url()?>reserva/cPost" method="post">
+	<form action="<?= base_url()?>reserva/crMaterialesPost" method="post">
 		<input type="hidden" value="<?=$usuario->id?>"  name="uid" id="uid">
-		<input type="hidden" value="<?=$aula->id?>"  name="idAula" id="idAula">
 			
-		<div class="input-field col s12">		
+		
+			<div class="input-field col s12">		
 				<label for="dia">Día</label>
             	<input type='text' class="form-control" id="picker1" name="dia"/>
-    			</div>
-    			<div class="row">
-       			 <div class='input-field col s6'>
-           		  <label for="horaInicio">Desde</label>
-                  <input type='text' class="form-control" id="picker2" name="horaInicio">
-               </div>
-               
-                <div class='input-field col s6'>
-           		  <label for="horaFin">Hasta</label>
-                  <input type='text' class="form-control" id="picker3" name="horaFin">
-               </div>
+    		</div>
+	<div class="row">
+   			 <div class='input-field col s6'>
+       		  <label for="horaInicio">Desde</label>
+              <input type='text' class="form-control" id="picker2" name="horaInicio">
+           </div>
+           
+            <div class='input-field col s6'>
+       		  <label for="horaFin">Hasta</label>
+              <input type='text' class="form-control" id="picker3" name="horaFin">
+           </div>
      </div>
 			
-	
+	<div class="col s12">
+	  <select name="idMaterial">
+	  <option value="" disabled selected>Elige entre los materiales disponibles:</option>
+	 	<?php foreach($materiales as $material):?>
+	 		<option value="<?=$material->id?>"> <?=$material->nombre?></option>
+	  	<?php endforeach;?>
+	  	</select>
+	</div>
 	<div class="divider"></div>
 	<div class="row">
 		<div class="col m12">
@@ -37,7 +44,7 @@
 	</form>
 </div>
 </div>
-  <script> 
+   <script> 
      	$('#picker1').datetimepicker({
 				timepicker: false,
 				datepicker:true,

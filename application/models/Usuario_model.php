@@ -56,7 +56,8 @@ class Usuario_model extends CI_Model{
             $usuario->tiene=$departamento;
             $usuario->fotoPerfil=$fotoPerfil;
             $usuario->rol='user';
-            $usuario->alias('usuarios')->xownReservaList=[];
+            $usuario->alias('tiene')->xownReservaaulaList=[];
+            $usuario->alias('tiene')->xownReservamaterialList=[];
             
             R::store($usuario);
             

@@ -4,7 +4,7 @@
 		<h4 class="center">Materiales</h4>
 	</div>
 
-		<table class="highlight striped">
+		<table class="striped">
 		<tr>
 			<th>Nombre</th>
 			<th>Observaciones</th>
@@ -16,18 +16,24 @@
 			<td><?= $material->nombre?></td>
 			<td><?= $material->observaciones?></td>
 			<td>
+			<div class="row">
+			<div class="col 6">
 				<form action="<?=base_url()?>material/d" method="post">
-					<input type="hidden" name="idMaterial" value="<?=$material->id?>">
+					<input type="hidden" name="id" value="<?=$material->id?>">
 					<button onclick="submit()" class="btn-floating waves-effect waves-light">
 					<i class="large material-icons">delete</i>
 				</button>
 				</form>
+				</div>
+				<div class="col 6">
 				<form action="<?=base_url()?>material/u" method="post">
-				<input type="hidden" name="idMaterial" value="<?=$material->id?>">
+				<input type="hidden" name="id" value="<?=$material->id?>">
 				<button onclick="submit()" class="btn-floating waves-effect waves-light">
 					<i class="large material-icons">edit</i>
 				</button>
 			</form>
+			</div>
+			</div>
 			</td>
 		</tr>
 	<?php endforeach;?>

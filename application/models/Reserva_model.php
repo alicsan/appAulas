@@ -1,40 +1,63 @@
 <?php 
 class Reserva_model extends CI_Model{
     
-    public function registrarReserva($user,$idAula,$fechaInicio,$fechaFin){
-               
-      
-            $reserva=R::dispense('reserva');
+    public function registrarReservaA($user,$idAula,$fechaInicio,$fechaFin){
+        
+            $reserva=R::dispense('reservaaula');
             $usuario=R::load('usuario',$user);
             $aula=R::load('aula',$idAula);
                     
-            $reserva->usuario=$usuario;
+            $reserva->tiene=$usuario;
             $reserva->fechaInicio=$fechaInicio;
             $reserva->fechaFin=$fechaFin;
-            $reserva->aula=$aula;
+            $reserva->reservada=$aula;
             R::store($reserva);
-            
-        
-        
-        
+               
     }
     
-    public function getReservas(){
-        return R::findAll('reserva');
+    public function getReservasA(){
+        return R::findAll('reservaaula');
     }
     
-    public function verificarReserva($idAula,$fechaInicio){
-        $valido=R::getAll("SELECT * FROM reserva WHERE fecha_inicio ='$fechaInicio' and aula_id='$idAula'");
+    public function verificarReservaA($idAula,$fechaInicio){
+        $valido=R::getAll("SELECT * FROM reservaaula WHERE fecha_inicio ='$fechaInicio' and aula_id='$idAula'");
     
         if($valido==null){
-            return true;
-                           
+            return true;             
             }else{
                 return false;
             }
     
     }
     
+    
+    public function registrarReservaM($user,$idMaterial,$fechaInicio,$fechaFin){
+        
+        $reservam=R::dispense('reservamaterial');
+        $usuario=R::load('usuario',$user);
+        $mat=R::load('material',$idMaterial);
+        
+        $reservam->tiene=$usuario;
+        $reservam->fechaInicio=$fechaInicio;
+        $reservam->fechaFin=$fechaFin;
+        $reservam->reservado=$mat;
+        R::store($reservam);
+        
+    }
+    
+    public function verificarReservaM($idMaterial,$fechaInicio){
+        $valido=R::getAll("SELECT * FROM reservamaterial WHERE fecha_inicio ='$fechaInicio' and material_id='$idMaterial'");
+        
+        if($valido==null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public function getReservasM(){
+        return R::findAll('reserva_material');
+    }
 }
 
 

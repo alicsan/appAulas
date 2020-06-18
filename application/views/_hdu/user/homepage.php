@@ -28,7 +28,7 @@ $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION[
     </div>
     <div class="card-content grey lighten-4 center">
       <div id="test1">
-    		<form action="<?= base_url()?>reserva/c" method="post">
+    		<form action="<?= base_url()?>reserva/crAulas" method="post">
 				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Reservar Aula
@@ -36,7 +36,8 @@ $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION[
 			</form>  
 	      </div>
       <div id="test2">
-      	<form action="#"  method="post">
+      	<form action="<?= base_url()?>reserva/crMateriales"  method="post">
+      	<input type="hidden" name="uid" value="<?=$uid?>">
 		  <button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Reservar Material
 				</button>

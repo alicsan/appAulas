@@ -24,3 +24,9 @@ body{
 .separacion{
 	padding: 10px !important; 
 }
+a:visited{
+  color: white !important;
+}
+a:active{
+  color: white !important;
+}

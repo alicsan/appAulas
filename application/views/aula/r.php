@@ -23,7 +23,7 @@
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><?= $aula->nombre?><i class="material-icons right">close</i></span>
       <p>Observaciones: <?= $aula->comentarios ? $aula->comentarios  : '--'?></p>
-      <form action="<?=base_url()?>reserva/create" method="post">
+      <form action="<?=base_url()?>reserva/crSingleAula" method="post">
       <input type="hidden" value="<?=$aula->id?>" name="id">
       <input type="hidden" value="<?=$uid?>" name="uid">
       <button onclick="submit()" class="btn waves-effect waves-light light-green lighten-1" style="margin-top:10px;">

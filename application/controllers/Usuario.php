@@ -4,7 +4,7 @@ session_start();
 class Usuario extends CI_Controller{ 
     
     public function registrar(){
-        $uid= isset($_POST['uid']) ? $_POST['uid'] : null;
+        $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
         $this->load->model('usuario_model');
         $rolOk=$this->usuario_model->verificarRol($uid);
         if($rolOk){

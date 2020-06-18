@@ -3,7 +3,7 @@
  	 	<h4 class="center">Reservar Aula <?=$usuario->nombre?></h4>
 	</div>
  <div class="row">
-	<form action="<?= base_url()?>reserva/cPost" method="post">
+	<form action="<?= base_url()?>reserva/crAulasPost" method="post">
 		<input type="hidden" value="<?=$usuario->id?>"  name="uid" id="uid">
 			
 		
