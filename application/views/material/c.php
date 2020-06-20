@@ -14,8 +14,6 @@
 		<input type="text" class="validate" name="observaciones" id="observaciones">
 	</div>
 
-<div class="divider"></div>
-
 	<div class="row">
 		<div class="center">
 		<button class="btn waves-effect waves-light light-green lighten-1" onclick="submit()">Crear</button>	

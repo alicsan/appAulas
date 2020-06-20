@@ -46,11 +46,15 @@ class Aula extends CI_Controller{
                 $_SESSION['_msg']['texto']=$e->getMessage();
                 $_SESSION['_msg']['uri']='aula/r';
                 redirect(base_url().'msg');
-            }
-            
-            
+            }            
         }
         
+        public function u(){
+            $id=isset($_POST['id']) ? $_POST['id'] : null;
+            $this->load->model('aula_model');
+            $data['aula']=$this->aula_model->getAulaById($id);
+            frame($this,"aula/u",$data);
+        }
         
     }
 

@@ -12,17 +12,17 @@ class Calendario extends CI_Controller{
         $this->load->model('calendario_model');
         $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
         $data ['idUsuario']=$uid;
-        $data['reservas']=$this->calendario_model->getReservas();
+        $data['reservas']=$this->calendario_model->getReservasAula();
         frame($this,'calendario/r',$data);
     }
     
     
-    public function rUser(){
+    public function raUser(){
         session_start();
         $this->load->model('calendario_model');
         $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
         $data ['idUsuario']=$uid;
-        $data['reservas']=$this->calendario_model->getReservasById($uid);
+        $data['reservas']=$this->calendario_model->getReservasAById($uid);
         frame($this,'calendario/r',$data);
     }
     public function rAula(){

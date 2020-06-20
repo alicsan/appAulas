@@ -1,34 +1,50 @@
   <?php $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;?>
    <script>
-   //var events=json_encode();
-   	$(document).ready(function(){
-   		var calendar=$('#calendar').fullCalendar({
-   			editable:true,
-   		 	 selectable: true,
-   			header:{
-   				left:'prev,next today',
-   				center:'title',
-   				right:'month,agendaWeek,angendaDay'
-   			},
-   			buttonText:{
-				today : 'hoy',
-				month: 'mes',
-				week: 'semana',
-				day: 'día'
-			   },
-			   events:[
-					<?php foreach ($reservas as $reserva):?>
-				   {
-					   title:'<?=$reserva->aula->pertenece->nombre?>',
-					   start:'<?=$reserva->fecha_inicio?>',
-					   end:'<?=$reserva->fecha_fin?>',
-					   backgroundColor:'black'
+   document.addEventListener('DOMContentLoaded', function() {
+       var calendarEl = document.getElementById('calendar');
+
+       var calendar = new FullCalendar.Calendar(calendarEl, {
+         plugins: [ 'dayGrid','timeGrid','list','bootstrap'],
+         themeSystem:'bootstrap',
+      	 locale:'es',
+         selectable:'true',
+        
+			titleFormat:{
+				year: 'numeric', month: 'long'
+			},
+			buttonText:{
+				prev: 'ATRÁS',
+				next: 'SIGUIENTE'
 				   },
-				   <?php endforeach;?>
-				   ]
-			   
-    		});
-   	});
+		   events:[
+				<?php foreach ($reservas as $reserva):?>
+				
+			   {
+				   title:'<?=$reserva->reservada->pertenece->nombre?> <?=$reserva->reservada->nombre?>',
+				   start:'<?=$reserva->fecha_inicio?>',
+				   end:'<?=$reserva->fecha_fin?>',
+				   well: 'what is dis',
+					   extendedProps: {
+					        pertenece: '<?=$reserva->tiene->nombre?>'
+					      }
+					      
+				  
+			   },
+			   <?php endforeach;?>
+			   ],
+			 eventClick: function(info) {
+			    alert('Pertenece: ' + info.event.extendedProps.pertenece+'\n'+'Aula: '+info.event.title);
+			 				    
+				    info.el.style.backgroundColor = 'darkblue';
+				  },
+// 				   eventRender: function (info) {
+// 					    console.log(info.event.extendedProps);
+// 					  }
+       });
+      
+       
+       calendar.render();
+     });
    
    </script>  
 
@@ -38,18 +54,10 @@
         
              <div id="calendar" style="margin:50px;"></div>
           
-           <div class="row" style="margin:20px;">
-        <div class="col m12 separacion">
-        
-          <form action="<?=base_url()?>reserva/c" method="post" class="center">
-      			
-      				<input type="hidden" value="<?=$uid?>" name="uid">
-     			 <button onclick="submit()" class="btn waves-effect waves-light light-green lighten-1">
-						RESERVAR AULA
-					</button>
-     			 </form>
-     			
-     	  </div>
-      </div>
-       
+           
+       <div class="fixed-action-btn">
+  <a class="btn-floating btn-large red" href="<?=base_url()?>reserva/crAulas">
+    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Hacer una reserva">add</i>
+  </a>
+</div>
         </div>

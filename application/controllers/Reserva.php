@@ -7,7 +7,7 @@ class Reserva extends CI_Controller{
     public function crAulas(){
         $this->load->model('usuario_model');
         $this->load->model('aula_model');
-        $userId=isset($_POST['uid']) ? $_POST['uid'] : null;
+        $userId=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;
         $data['usuario']=$this->usuario_model->getUserById($userId);
         $data['aulas']=$this->aula_model->getAulas();
         frame($this,'reserva/crAula',$data);
@@ -84,7 +84,13 @@ class Reserva extends CI_Controller{
      }
      
      public function crSingleMaterial(){
-         
+         $this->load->model('usuario_model');
+         $this->load->model('material_model');
+         $materialId=isset($_POST['id']) ? $_POST['id'] : null;
+         $userId=isset($_POST['uid']) ? $_POST['uid'] : null;
+         $data['usuario']=$this->usuario_model->getUserById($userId);
+         $data['material']=$this->material_model->getMaterialById($materialId);
+         frame($this,'reserva/crSingleMaterial',$data);
      }
      
      public function crMaterialesPost(){

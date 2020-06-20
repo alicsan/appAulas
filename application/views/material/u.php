@@ -8,22 +8,21 @@
 	<input type="hidden" name="id" value="<?=$material->id?>">
 	
 	<div class="input-field col s12">
-	<label for="nombre">Nombre</label>
-	<input id="nombre" type="text" name="nombre" class="validate" value="<?= $material->nombre?>">
+	
+	<input id="nombre" type="text" name="nombre" class="validate">
 	</div>
 	
 	
 	<div class="input-field col s12">
-	<label for="observaciones">Observaciones</label>
-	<input id="observaciones" type="text" name="observaciones" class="validate" value="<?= $material->observaciones?>">
+	<input id="observaciones" type="text" name="observaciones" class="validate">
 	</div>
 	
 	<div class="divider"></div>
 	
 	<div class="col m12">
 				<div class="center">
-					<input class="btn waves-effect waves-light light-green lighten-1" type="submit"
-						name="action" value="Actualizar">
+					<button class="btn waves-effect waves-light light-green lighten-1" 
+						name="action" onclick="submit()">Actualizar</button>
 				</div>
 			</div>
 </form>

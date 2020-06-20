@@ -21,18 +21,17 @@ class Usuario extends CI_Controller{
     
     public function registrarPost(){
         
-        $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = '100';
-        $config['max_width'] = '1024';
+       
         $config['max_height'] = '768';
         $this->load->model('usuario_model');
         $this->load->library('upload', $config);
         $nombre= isset($_POST['nombre']) ? $_POST['nombre'] : null;
         $apellido=isset($_POST['apellido']) ? $_POST['apellido'] : null;
         
-        $fotoPerfil=isset($_POST['fperfil']) ? $_POST['fperfil'] : 'default.jpg';
-        
+        $fotoPerfil=isset($_FILES['fperfil'])? $_FILES['fperfil'] : null;
+        move_uploaded_file($_FILES['fperfil']['tmp_name'],'assets/uploads'.
+            $_FILES['fperfil']['name']);
+                
         $username= isset($_POST['username']) ? $_POST['username'] : null;
         $pwd=isset($_POST['pwd']) ? $_POST['pwd'] : null;
         $idDepar=isset($_POST['idDepar']) ? $_POST['idDepar'] : null;

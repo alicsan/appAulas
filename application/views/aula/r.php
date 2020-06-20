@@ -38,6 +38,12 @@
 					</button>
       </form>
       <?php if($urol=='admin'):?>
+      <form action="<?=base_url()?>aula/u" method="post">
+					<input type="hidden" name="id" value="<?=$aula->id?>">
+					<button onclick="submit()" class="btn-floating waves-effect waves-light blue right tooltipped" data-position="top" data-tooltip="Editar Aula" style="margin:10px;">
+					<i class="large material-icons">edit</i>
+				</button>
+				</form>
       <form action="<?=base_url()?>aula/d" method="post">
 					<input type="hidden" name="id" value="<?=$aula->id?>">
 					<button onclick="submit()" class="btn-floating waves-effect waves-light red right tooltipped" data-position="top" data-tooltip="Eliminar Aula" style="margin-top:10px;">

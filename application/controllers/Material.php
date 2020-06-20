@@ -24,11 +24,13 @@ class Material extends CI_Controller{
     public function r(){
         $this->load->model('material_model');
         $data['materiales']=$this->material_model->getMateriales();
+        $id=isset($_POST['uid']) ? $_POST['uid'] : 0;
+        $data['uid']=$id;
         frame($this,'material/r',$data);
     }
     
     public function u(){
-        $id = isset($_POST['idMaterial'])?$_POST['idMaterial']:null;
+        $id = isset($_POST['id']) ? $_POST['id'] : null;
         $this->load->model('material_model');
         $data['material']=$this->material_model->getMaterialById($id);
         frame($this,'material/u',$data);

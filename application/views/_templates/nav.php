@@ -17,35 +17,12 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 		 <?php if($urol=="user"):?>
 		 <a class="brand-logo" href="<?=base_url() ?>hdu/user/homepage"><i class="material-icons large right">home</i>Inicio</a>
     </div>       
-   				
-   				
-   				<ul class="right hide-on-med-and-down">
-        <li>
-					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rUser" >
-					<i class="material-icons left">insert_invitation</i>TUS RESERVAS
-					</a>
-					
-					
-			 </li>
-        <li>
-					<a  class="waves-effect waves-light btn light-green lighten-1" href="<?=base_url()?>calendario/rAll" >
-					<i class="material-icons left">insert_invitation</i>TODAS LAS RESERVAS
-					</a>
-					
-					
-			 </li>
-        <li>
-   		 	<button data-target="slide-out" class="waves-effect waves-light btn-floating btn-large sidenav-trigger right"><i class="material-icons">person</i></button>
-				</li>
-      </ul>
-	</div>	
-   </div>
-  </nav>
-<?php endif;?>
-<?php if($urol=="admin"):?>
-<a class="brand-logo" href="<?=base_url() ?>hdu/user/homepageAdmin "><i class="material-icons large right">home</i>Inicio</a>
-    </div>       
- 		   				
+   				<?php endif;?>
+   		<?php if($urol=="admin"):?>		
+   				<a class="brand-logo" href="<?=base_url() ?>hdu/user/homepageAdmin "><i class="material-icons large right">home</i>Inicio</a>
+    </div> 
+    <?php endif;?>
+   					<?php if($urol=="user" || $urol=="admin" ):?>
    				<ul class="right hide-on-med-and-down">
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-trigger" href="#!" data-target="desplegable1">TUS RESERVAS<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -59,13 +36,12 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    </div>
   </nav>
 <?php endif;?>
-
 <!-- --------------------------------------DESPLEGABLES NAV ------------------------------------------ -->
 
         <ul id="desplegable1" class="dropdown-content">
           <li><a href="#!">MATERIALES</a></li>
           <li class="divider"></li>
-          <li><a href="<?=base_url()?>calendario/rUser">AULAS</a></li>
+          <li><a href="<?=base_url()?>calendario/raUser">AULAS</a></li>
           
          
         </ul>
@@ -80,7 +56,7 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 
 <!-- --------------------------------------BARRA DE NAVEGACIÓN LATERAL IZQ------------------------------------------ -->
  
-<?php if($urol=="user"):?>
+
 <ul id="slide-out" class="sidenav grey darken-4" style="font-family: 'Sarala', sans-serif;">
     <li>
     <div class="user-view">
@@ -103,71 +79,20 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 													</button>
 											</form>
 									</li>
- 								 
-								</ul>
-   					 </div>
-   				</li>
-   				
-   				
-   				<!-- AULAS -->			
-   				
-   				<div class="divider"></div>
-   				<li>
-   				<form action="<?= base_url()?>aula/r" method="post">
-				<input type="hidden" name="uid" value="<?=$uid?>">
-				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
-					Listado de Aulas
-				</button>
-			</form>
-			
-   				
-   				
-   				<li><div class="divider"></div></li>
-   				
-   				 
-   		</ul>
-   	</div>	
-   	</li>	
- </ul> 
- <?php endif;?>
-  
-  <?php if($urol=="admin"):?>
-  
-  <ul id="slide-out" class="sidenav grey darken-4" style="font-family: 'Sarala', sans-serif;">
-    <li>
-    <div class="user-view">
-  
-      <p class="white-text"><i><?= $nombre?></i></p>
-     <ul class="collapsible">
-
-      <div class="subheader"></div>
- 						<li> 
-							<div class="collapsible-header white-text">
-								<i class="material-icons">brightness_7</i> Opciones de Usuario
- 							</div> 
-							<div class="collapsible-body grey darken-4"> 
-								<ul>
-									<li>
-										<form action="<?= base_url()?>usuario/changepwd" method="post">
-											  <input type="hidden" name="uid" value="<?=$uid?>">
-													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
-														Cambiar contraseña
-													</button>
-													</form>
-									</li>				
- 										
- 										
- 										<li><form action="<?=base_url()?>usuario/registrar" method="post">
+ 								 <?php if($urol=="admin"):?>
+ 								 <form action="<?=base_url()?>usuario/registrar" method="post">
 											  <input type="hidden" name="uid" value="<?=$uid?>">
 													<button onclick="submit()" class="waves-effect waves-light btn hoverable">
 														Registrar usuario
 													</button></form>
- 									</li> 
+ 								 
+ 								 <?php endif;?>
 								</ul>
    					 </div>
    				</li>
+   					<?php if($urol=="admin"):?>
    				
-   				<li> 
+   						<li> 
 							<div class="collapsible-header white-text">
 								<i class="material-icons">brightness_7</i> Departamentos
  							</div> 
@@ -217,8 +142,8 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
  									</li>
 								</ul>
 	   					 </div>
-   				</li>
-   				
+	   					 	</li>
+   				<?php endif;?>
    				<!-- AULAS -->			
    				
    				<div class="divider"></div>
@@ -228,8 +153,16 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
 				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
 					Listado de Aulas
 				</button>
-			</form>
-							
+			</form></li>
+			<li><div class="divider"></div></li>
+   				<li>
+   				<form action="<?= base_url()?>material/r" method="post">
+				<input type="hidden" name="uid" value="<?=$uid?>">
+				<button onclick="submit()" class="waves-effect waves-light btn light-green lighten-1">
+					Listado de Materiales
+				</button>
+			</form></li>
+   				
    				<li><div class="divider"></div></li>
    				
    				 
@@ -238,10 +171,11 @@ $urol=isset($_SESSION['rol']) ? $_SESSION['rol'] : $_SESSION['rol']="anon";
    	</li>	
  </ul> 
 
-  
-  <?php endif;?>
-  
-  
+   	</div>	
+   	</li>	
+ </ul> 
+
+
   
   
   

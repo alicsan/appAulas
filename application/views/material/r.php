@@ -1,50 +1,71 @@
-<div class="container content">
+<?php $urol=isset($_SESSION['rol']) ? $_SESSION['rol']:'anon';?>
+<div class="container fondoBlanco content" >
+<div class="row">
+	<h4 class="center">Materiales</h4>
+</div>
+
 
 	<div class="row">
-		<h4 class="center">Materiales</h4>
-	</div>
-
-		<table class="striped">
-		<tr>
-			<th>Nombre</th>
-			<th>Observaciones</th>
-			<th>Acciones</th>
-		</tr>
-	
 	<?php foreach ($materiales as $material): ?>
-		<tr>
-			<td><?= $material->nombre?></td>
-			<td><?= $material->observaciones?></td>
-			<td>
-			<div class="row">
-			<div class="col 6">
-				<form action="<?=base_url()?>material/d" method="post">
+	
+	<div class="col s12 m4 l4 xl4"> 
+		 <div class="card medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="https://cdn.pixabay.com/photo/2017/08/06/20/36/school-2596090_1280.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><?= $material->nombre?><i class="material-icons right tooltipped" data-position="bottom" data-tooltip="Reservar">more_vert</i></span>
+      <p><?=$material->nombre?></p><br>
+      <p>Observaciones: <?= $material->observaciones ? $material->observaciones  : '--'?></p>
+      
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><?= $material->nombre?><i class="material-icons right">close</i></span>
+      <p>Observaciones: <?= $material->observaciones ? $material->observaciones  : '--'?></p>
+      <form action="<?=base_url()?>reserva/crSingleMaterial" method="post">
+      <input type="hidden" value="<?=$material->id?>" name="id">
+      <input type="hidden" value="<?=$uid?>" name="uid">
+      <button onclick="submit()" class="btn waves-effect waves-light light-green lighten-1" style="margin-top:10px;">
+						Reservar
+					</button>
+      </form>
+      <form action="<?=base_url()?>calendario/rMaterialS" method="post">
+      <input type="hidden" value="<?=$material->id?>" name="id">
+      <input type="hidden" value="<?=$uid?>" name="uid">
+      <button onclick="submit()" class="btn waves-effect waves-light light-green lighten-1" style="margin-top:10px;">
+						Ver Reservas de este Objeto
+					</button>
+      </form>
+      <?php if($urol=='admin'):?>
+      <form action="<?=base_url()?>material/u" method="post">
 					<input type="hidden" name="id" value="<?=$material->id?>">
-					<button onclick="submit()" class="btn-floating waves-effect waves-light">
+					<button onclick="submit()" class="btn-floating waves-effect waves-light blue right tooltipped" data-position="top" data-tooltip="Editar Material" style="margin:10px;">
+					<i class="large material-icons">edit</i>
+				</button>
+				</form>
+      <form action="<?=base_url()?>material/d" method="post">
+					<input type="hidden" name="id" value="<?=$material->id?>">
+					<button onclick="submit()" class="btn-floating waves-effect waves-light red right tooltipped" data-position="top" data-tooltip="Eliminar Material" style="margin-top:10px;">
 					<i class="large material-icons">delete</i>
 				</button>
 				</form>
-				</div>
-				<div class="col 6">
-				<form action="<?=base_url()?>material/u" method="post">
-				<input type="hidden" name="id" value="<?=$material->id?>">
-				<button onclick="submit()" class="btn-floating waves-effect waves-light">
-					<i class="large material-icons">edit</i>
-				</button>
-			</form>
-			</div>
-			</div>
-			</td>
-		</tr>
-	<?php endforeach;?>
-</table>
+      <?php endif;?>
+    </div>
+  </div>
+		</div>
+		
+			<?php endforeach;?>
+		
+		</div>
+		</div> 
 
-<div class="divider"></div>
-	
-	<div class="col s12">
-				<div class="center">
-				<a href="<?=base_url()?>material/c" class="btn waves-effect waves-light light-green lighten-1">Añadir</a>
-				</div>
-			</div>
-
+<?php if($urol=='admin'):?>
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red" href="<?=base_url()?>material/c">
+    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Añadir Material">add</i>
+  </a>
 </div>
+<?php endif;?>
+</div>
+<!--  -->
+<!-- Image by <a href="https://pixabay.com/users/simisi1-5920903/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2596090">simisi1</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2596090">Pixabay</a> -->
