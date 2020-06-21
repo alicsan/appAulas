@@ -21,12 +21,12 @@
 				<?php foreach ($reservas as $reserva):?>
 				<?php $randomkeys=$c[rand(0,sizeof($c)-1)];?>
 			   {
-				   title:'<?=$reserva->reservada->pertenece->nombre?> <?=$reserva->reservada->nombre?>',
+				   title:'<?=$reserva->tiene->nombre?>',
 				   start:'<?=$reserva->fecha_inicio?>',
 				   end:'<?=$reserva->fecha_fin?>',
 				   backgroundColor:'<?=$randomkeys?>',
 					   extendedProps: {
-					        pertenece: '<?=$reserva->tiene->nombre?>'
+					        pertenece: '<?=$reserva->reservado->nombre?>'
 					      }
 					      
 				  
@@ -34,7 +34,7 @@
 			   <?php endforeach;?>
 			   ],
 			 eventClick: function(info) {
-			    alert('Aula: '+info.event.title+'\n'+'Reserva hecha por: ' + info.event.extendedProps.pertenece);
+			    alert('Material: ' + info.event.extendedProps.pertenece+'\n'+'Reserva hecha por: '+info.event.title);
 			 				    
 				    info.el.style.backgroundColor = 'darkblue';
 				  },
@@ -53,7 +53,7 @@
       
         <div class="container content">
         
-             <div id="calendar" style="margin:50px;"></div>
+             <div id="calendar"></div>
           
            
        <div class="fixed-action-btn">
@@ -61,12 +61,12 @@
     <i class="large material-icons tooltipped" data-position="left" data-tooltip="Opciones">add</i>
   </a>
   <ul>  
-  <li> <a class="btn-floating yellow darken-1"><i class="large material-icons tooltipped" data-position="left" data-tooltip="Hacer una reserva">add</i></a></li>  
+<li> <a class="btn-floating yellow darken-1" href="reserva/crMateriales"><i class="large material-icons tooltipped" data-position="left" data-tooltip="Hacer una reserva">add</i></a></li>  
     <li>
      <form action="<?=base_url()?>hdu/anonymous/logout" method="post">
 				<input type="hidden" name="uid" value="<?=$uid?>">
 				<button onclick="submit()" class="btn-floating green">
-					<a><i class="material-icons tooltipped" data-position="left" data-tooltip="Cerrar sesión">exit_to_app</i></a>
+					<i class="material-icons tooltipped" data-position="left" data-tooltip="Cerrar sesión">exit_to_app</i></a>
 				</button>
 			</form>
     </li>

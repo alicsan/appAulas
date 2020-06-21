@@ -17,10 +17,10 @@ class Reserva extends CI_Controller{
         $this->load->model('usuario_model');
         $this->load->model('aula_model');
         $aulaId=isset($_POST['id']) ? $_POST['id'] : null;
-        $userId=isset($_POST['uid']) ? $_POST['uid'] : null;
+        $userId=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;;
         $data['usuario']=$this->usuario_model->getUserById($userId);
         $data['aula']=$this->aula_model->getAulaById($aulaId);
-        frame($this,'reserva/cU',$data);
+        frame($this,'reserva/crSingleAula',$data);
     }
     
     public function crAulasPost(){
@@ -77,7 +77,7 @@ class Reserva extends CI_Controller{
      public function crMateriales(){
          $this->load->model('usuario_model');
          $this->load->model('material_model');
-         $uid=isset($_POST['uid']) ? $_POST['uid'] : null;
+         $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;;
          $data['usuario']=$this->usuario_model->getUserById($uid);
          $data['materiales']=$this->material_model->getMateriales();
          frame($this,'reserva/crMateriales',$data);
@@ -87,7 +87,7 @@ class Reserva extends CI_Controller{
          $this->load->model('usuario_model');
          $this->load->model('material_model');
          $materialId=isset($_POST['id']) ? $_POST['id'] : null;
-         $userId=isset($_POST['uid']) ? $_POST['uid'] : null;
+         $userId=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;;
          $data['usuario']=$this->usuario_model->getUserById($userId);
          $data['material']=$this->material_model->getMaterialById($materialId);
          frame($this,'reserva/crSingleMaterial',$data);
@@ -138,11 +138,7 @@ class Reserva extends CI_Controller{
          }
      }
      
-     public function rMateriales(){
-         $this->load->model('reserva_model');
-         $data['reservas']=$this->reserva_model->getReservasM();
-         frame($this,'reserva/r',$data);
-     }
+     
 }
 
 

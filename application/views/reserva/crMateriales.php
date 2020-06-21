@@ -1,6 +1,6 @@
 <div class="container content">
 	<div class="row">
- 	 	<h4 class="center">Reservar Material <?=$usuario->nombre?></h4>
+ 	 	<h4 class="center">Hacer reserva</h4>
 	</div>
  <div class="row">
 	<form action="<?= base_url()?>reserva/crMaterialesPost" method="post">
@@ -42,6 +42,22 @@
   		</div>	
   	</div>
 	</form>
+</div>
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Opciones">add</i>
+  </a>
+     <ul>
+    <li>
+     <form action="<?=base_url()?>hdu/anonymous/logout" method="post">
+				<input type="hidden" name="uid" value="<?=$usuario->id?>">
+				<button onclick="submit()" class="btn-floating green">
+					<i class="material-icons tooltipped" data-position="left" data-tooltip="Cerrar sesión">exit_to_app</i></a>
+				</button>
+			</form>
+    </li>
+  
+  </ul>
 </div>
 </div>
    <script> 

@@ -56,7 +56,7 @@ class Reserva_model extends CI_Model{
     }
     
     public function getReservasM(){
-        return R::findAll('reserva_material');
+        return R::findAll('reservamaterial');
     }
 }
 

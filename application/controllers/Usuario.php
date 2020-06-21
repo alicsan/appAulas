@@ -19,31 +19,33 @@ class Usuario extends CI_Controller{
         
     }
     
-    public function registrarPost(){
-        
-       
-        $config['max_height'] = '768';
+    public function registrarPost(){      
         $this->load->model('usuario_model');
-        $this->load->library('upload', $config);
         $nombre= isset($_POST['nombre']) ? $_POST['nombre'] : null;
         $apellido=isset($_POST['apellido']) ? $_POST['apellido'] : null;
-        
-        $fotoPerfil=isset($_FILES['fperfil'])? $_FILES['fperfil'] : null;
-        move_uploaded_file($_FILES['fperfil']['tmp_name'],'assets/uploads'.
-            $_FILES['fperfil']['name']);
-                
         $username= isset($_POST['username']) ? $_POST['username'] : null;
         $pwd=isset($_POST['pwd']) ? $_POST['pwd'] : null;
         $idDepar=isset($_POST['idDepar']) ? $_POST['idDepar'] : null;
+       
+        /**********************      IMG     *********************************/
+//         $dir_subida = base_url().'assets/uploads/';
+//         $fichero_subido = $dir_subida . basename($_FILES['fperfil']['name']);
+//          move_uploaded_file($_FILES['fperfil']['tmp_name'], $fichero_subido);      
+        $fotoPerfil=isset($_FILES['fperfil']['name'])? $_FILES['fperfil']['name'] : 'error.jpg';
+        $carpeta=base_url().'assets/upload/';
+        copy($_FILES['fperfil']['tmp_name'],'C:\Users\alica\git\appAulas\assets\upload\\'.$fotoPerfil);       
+        /*******************************************************/
+        
         try{
-            $this->upload->do_upload($fotoPerfil);
+            //$this->upload->do_upload($fotoPerfil);
+            
             $this->usuario_model->registrarUsuario($nombre,$apellido,$username,$pwd,$idDepar,$fotoPerfil);
             redirect(base_url().'usuario/r');
         }catch(Exception $e){
             $_SESSION['_msg']['texto']=$e->getMessage();
             $_SESSION['_msg']['uri']='usuario/r';
             redirect(base_url().'msg');
-        }
+        } 
         
     }
     

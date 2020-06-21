@@ -42,7 +42,7 @@ class Usuario_model extends CI_Model{
         $userId=$usuario->id;
         return $userId;
     }
-    public function registrarUsuario($nombre,$apellidos,$username,$pwd,$idDepar,$fotoPerfil){
+    public function registrarUsuario($nombre,$apellidos,$username,$pwd,$idDepar,$foto_perfil){
         
         $valido=($nombre!=null && $apellidos!=null && $username!=null &&  $pwd != null && $idDepar!= null);
         $userOk=R::findOne('usuario','username=?',[$username]);
@@ -54,7 +54,7 @@ class Usuario_model extends CI_Model{
             $usuario->username=$username;
             $usuario->password=password_hash($pwd, PASSWORD_DEFAULT);
             $usuario->tiene=$departamento;
-            $usuario->fotoPerfil=$fotoPerfil;
+            ($foto_perfil ==1) ? $usuario->foto_perfil= 'nuse': $usuario->foto_perfil=$foto_perfil;
             $usuario->rol='user';
             $usuario->alias('tiene')->xownReservaaulaList=[];
             $usuario->alias('tiene')->xownReservamaterialList=[];
@@ -62,7 +62,7 @@ class Usuario_model extends CI_Model{
             R::store($usuario);
             
         }else{
-            $e = ($idDepar == null ? new Exception("nulo") : new Exception("duplicado"));
+            $e = ($nombre == null || $apellidos ==null || $username==null || $pwd==null || $idDepar == null ? new Exception("Debes rellenar todos los campos") : new Exception("duplicado"));
             throw  $e;
         }
         }

@@ -61,6 +61,7 @@ class Anonymous_model extends CI_Model{
                 session_start();
                 $_SESSION['_user']['_uid']=$usuario->id;
                 $_SESSION['_user']['_un']=$usuario->nombre;
+                $_SESSION['_user']['_img']=$usuario->foto_perfil;
                 $_SESSION['rol']=$usuario->rol;
                 return $usuario;
             }

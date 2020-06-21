@@ -48,16 +48,9 @@ $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION[
   </div>
 
 <!--  -------------------------------OPCIONES DE USUARIO, CERRAR SESIÓN Y EDITAR PERFIL -->
-
-
- <div class="divider"></div>
- 
-
-
-
 <div class="fixed-action-btn">
   <a class="btn-floating btn-large red">
-    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Perfil">add</i>
+    <i class="large material-icons tooltipped" data-position="left" data-tooltip="Opciones">add</i>
   </a>
   <ul>
  
