@@ -1,13 +1,13 @@
 <?php $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION['_user']['_uid'] = 0;?>
 <div class="container content">
 <div class="row">
-	<h4 class="center">Nueva Aula</h4>
+	<h4 class="center">Editar Aula</h4>
 </div>
 
-	<form action="<?=base_url()?>aula/cPost" method="post">
-	<input type="hidden" value="<?=$aula->id?>" name="aulaId">
+	<form action="<?=base_url()?>aula/uPost" method="post">
+	<input type="hidden" name="id" value="<?=$aula->id?>">
 	<div class="col s12">
-	<h6 class="center">Editar Aula</h6>
+	<h6 class="center"><?=$aula->pertenece->nombre?> <?=$aula->nombre?></h6>
 	</div>
 	
 	<div class="input-field col s12">

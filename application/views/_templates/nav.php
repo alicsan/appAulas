@@ -30,6 +30,7 @@ $img = isset($_SESSION['_user']['_img']) ? $_SESSION['_user']['_img'] : 'profile
    					<?php if($urol=="user" || $urol=="admin" ):?>
 <ul class="right hide-on-med-and-down">
 	<!-- Dropdown Trigger -->
+	
 	<li><a class="dropdown-trigger" href="#!" data-target="desplegable1">TUS
 			RESERVAS<i class="material-icons right">arrow_drop_down</i>
 	</a></li>

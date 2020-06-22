@@ -10,7 +10,6 @@ class Aula extends CI_Controller{
     
     public function cPost(){
         $this->load->model('aula_model');
-        
         $nombre=isset($_POST['naula']) ? $_POST['naula'] : null;
         $capacidad=isset($_POST['capacidad'] ) ? $_POST['capacidad'] : null;
         $comentarios=isset($_POST['comentarios'] ) ? $_POST['comentarios'] : null;
@@ -52,10 +51,30 @@ class Aula extends CI_Controller{
         public function u(){
             $id=isset($_POST['id']) ? $_POST['id'] : null;
             $this->load->model('aula_model');
+            $this->load->model('categoriaAula_model');
+            $data['categorias']=$this->categoriaAula_model->getCategoriasAula();
             $data['aula']=$this->aula_model->getAulaById($id);
             frame($this,"aula/u",$data);
         }
         
+        public function uPost(){
+            $this->load->model('aula_model');
+            $id=isset($_POST['id']) ? $_POST['id'] : null;
+            $nombre=isset($_POST['naula']) ? $_POST['naula'] : null;
+            $capacidad=isset($_POST['capacidad'] ) ? $_POST['capacidad'] : null;
+            $comentarios=isset($_POST['comentarios'] ) ? $_POST['comentarios'] : null;
+            $categoriaAula=isset($_POST['idCat']) ? $_POST['idCat'] : null;
+          
+            try{
+                $this->aula_model->uAula($id,$nombre,$capacidad,$comentarios,$categoriaAula);
+                redirect(base_url().'aula/r');
+            }catch(Exception $e){
+                session_start();
+                $_SESSION['_msg']['texto']=$e->getMessage();
+                $_SESSION['_msg']['uri']='aula/r';
+                redirect(base_url().'msg');
+            }
+        }
     }
 
 

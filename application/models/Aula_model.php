@@ -23,6 +23,23 @@ class Aula_model extends CI_Model {
         }
     }
     
+    public function uAula($id, $nombre,$capacidad,$comentarios,$categoriaAula){
+        if($categoriaAula!=null && $id!=null){
+           $aula= R::load('aula',$id);
+           $tipoAula= R::load('categoriaaula',$categoriaAula);
+            
+           $aula->nombre=$nombre;
+           $aula->capacidad=$capacidad;
+           $aula->comentarios=$comentarios;
+           $aula->pertenece=$tipoAula;
+           
+           R::store($aula);
+        }else{
+            $e = ($id == null ? new Exception("Debes elegir un tipo de aula.") : new Exception("Error al actualizar el aula seleccionada."));
+            throw $e;
+        }
+    }
+    
     public function getAulas(){
         return R::findAll('aula');
     }

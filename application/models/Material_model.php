@@ -31,13 +31,14 @@ class Material_Model extends CI_Model{
     }
     
     public function updateMaterial($id,$nombre,$obs){
-           $valido = ($id!=null && $nombre!=null && $obs!=null);
+           $valido = ($id!=null && $nombre!=null);
         if($valido){
             $mat=R::load('material',$id);
             $mat->nombre=$nombre;
-            $mat->observaciones=$obs;
+            ($obs!=null)?$mat->observaciones=$obs:$mat->observaciones='--';
+            R::store($mat);
         }else{
-            $e = ($id == null ? new Exception("nulo") : new Exception("duplicado"));
+            $e = ($id == null ? new Exception("Id nulo") : new Exception("Error al actualizar el material."));
             throw $e;
         }
     }

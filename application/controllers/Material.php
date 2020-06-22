@@ -41,6 +41,7 @@ class Material extends CI_Controller{
         $id = isset($_POST['id']) ? $_POST['id'] : null;
         $nombre= isset ($_POST['nombre']) ? $_POST['nombre'] : null;
         $observaciones = isset($_POST['observaciones']) ? $_POST['observaciones'] : '--';
+
         try{
             $this->material_model->updateMaterial($id,$nombre,$observaciones);
             redirect(base_url().'material/r');
