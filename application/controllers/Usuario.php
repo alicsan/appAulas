@@ -27,18 +27,13 @@ class Usuario extends CI_Controller{
         $pwd=isset($_POST['pwd']) ? $_POST['pwd'] : null;
         $idDepar=isset($_POST['idDepar']) ? $_POST['idDepar'] : null;
        
-        /**********************      IMG     *********************************/
-//         $dir_subida = base_url().'assets/uploads/';
-//         $fichero_subido = $dir_subida . basename($_FILES['fperfil']['name']);
-//          move_uploaded_file($_FILES['fperfil']['tmp_name'], $fichero_subido);      
+        
         $fotoPerfil=isset($_FILES['fperfil']['name'])? $_FILES['fperfil']['name'] : 'error.jpg';
         $carpeta=base_url().'assets/upload/';
-        copy($_FILES['fperfil']['tmp_name'],'C:\Users\alica\git\appAulas\assets\upload\\'.$fotoPerfil);       
-        /*******************************************************/
+        copy($_FILES['fperfil']['tmp_name'],'-------'.$fotoPerfil);       
+       
         
         try{
-            //$this->upload->do_upload($fotoPerfil);
-            
             $this->usuario_model->registrarUsuario($nombre,$apellido,$username,$pwd,$idDepar,$fotoPerfil);
             redirect(base_url().'usuario/r');
         }catch(Exception $e){
@@ -87,10 +82,16 @@ class Usuario extends CI_Controller{
             $id = isset($_POST['id']) ? $_POST['id'] : null;
             $username= isset($_POST['username']) ? $_POST['username'] : null;
             $idDepar = isset($_POST['idDepar']) ? $_POST['idDepar'] : null;
+            
+            $fotoPerfil=isset($_FILES['fperfil']['name'])? $_FILES['fperfil']['name'] : 'error.jpg';
+            $carpeta=base_url().'assets/upload/';
+            
+            copy($_FILES['fperfil']['tmp_name'],'-------'.$fotoPerfil); 
+            
             $user=$this->usuario_model->getUserById($id);
             
             try {
-                $this->usuario_model->updateUsuario($id,$username,$idDepar);
+                $this->usuario_model->updateUsuario($id,$username,$idDepar,$fotoPerfil);
                 redirect(base_url() . 'usuario/r');
             }
             catch (Exception $e) {

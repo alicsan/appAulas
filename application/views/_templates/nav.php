@@ -89,14 +89,14 @@ $img = isset($_SESSION['_user']['_img']) ? $_SESSION['_user']['_img'] : 'profile
 				</div>
 				<div class="collapsible-body grey darken-4">
 					<ul>
-
-						<li><form action="<?= base_url()?>usuario/changepwd" method="post"
-								class="center">
-								<input type="hidden" name="uid" value="<?=$uid?>">
-								<button onclick="submit()"
-									class="waves-effect waves-light btn hoverable">Cambiar
-									contraseña</button>
-							</form></li>
+						<li>
+                       		 <form action="<?= base_url()?>usuario/u" method="post" class="center">
+                    			<input type="hidden" name="uid" value="<?=$uid?>">
+                    				<button onclick="submit()" class="waves-effect waves-light btn hoverable yellow darken-1">
+                    					Editar Perfil
+                    				</button>
+                    			</form>
+                        </li>
  								 <?php if($urol=="admin"):?>
  								 <li><form action="<?=base_url()?>usuario/registrar"
 								method="post" class="center">

@@ -54,16 +54,6 @@ $uid=isset($_SESSION['_user']['_uid']) ? $_SESSION['_user']['_uid'] : $_SESSION[
     <i class="large material-icons tooltipped" data-position="left" data-tooltip="Opciones">add</i>
   </a>
   <ul>
- 
-    <li>
-    <form action="<?= base_url()?>usuario/u" method="post">
-				<input type="hidden" name="uid" value="<?=$uid?>">
-				<button onclick="submit()" class="btn-floating yellow darken-1">
-					<i class="material-icons tooltipped" data-position="left" data-tooltip="Editar perfil">mode_edit</i></a>
-				</button>
-			</form>
-    </li>
-    
     <li>
      <form action="<?=base_url()?>hdu/anonymous/logout" method="post">
 				<input type="hidden" name="uid" value="<?=$uid?>">
